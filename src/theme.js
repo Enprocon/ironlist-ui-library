@@ -4,11 +4,11 @@ export const theme = {
     one: '#faa766',
     two: '#fbbe8f',
     three: '#fee9d8',
-    four: '#fff9f5',
+    four: '#fff9f5'
   },
   primaryShade: {
     one: '#f57022',
-    two: '#f05515',
+    two: '#f05515'
   },
   secondary: {
     blue: '#21548f',
@@ -16,7 +16,7 @@ export const theme = {
       one: '#597fab',
       two: '#85a1c2',
       three: '#b2c3d8',
-      four: '#f4f6f9',
+      four: '#f4f6f9'
     },
     blueShade: {
       one: '#153d75',

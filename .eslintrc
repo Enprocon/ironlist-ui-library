@@ -5,11 +5,10 @@
     "jest": true
   },
   "root": true,
-  "extends": ["airbnb", "airbnb/hooks", "plugin:prettier/recommended", "prettier/react"],
+  "extends": ["airbnb", "airbnb/hooks", "plugin:prettier/recommended", "prettier"],
   "parser": "babel-eslint",
   "settings": { "import/resolver": { "node": {}, "webpack": {} }, "react": { "version": "detect" } },
   "rules": {
-    // New React
     "comma-dangle": ["error", "never"],
     "jsx-a11y/click-events-have-key-events": "off",
     "no-param-reassign": "off",
@@ -29,8 +28,6 @@
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "import/prefer-default-export": "off", // For ref: https://github.com/airbnb/javascript/issues/1365#issue-220713862
     // Old React
-    "react/no-unused-prop-types": "warn",
-    "no-extend-native": "warn",
-    "eqeqeq": "off"
+    "no-extend-native": "warn"
   }
 }
