@@ -12,6 +12,8 @@ export const Tag = ({ children, backgroundColor, hasRoundBorder }) => (
   </ThemeProvider>
 );
 
+export default Tag;
+
 Tag.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   backgroundColor: PropTypes.string,

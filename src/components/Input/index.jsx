@@ -23,6 +23,8 @@ export const Input = ({ type, placeholder, size, defaultValue, onChange }) => {
   );
 };
 
+export default Input;
+
 Input.propTypes = {
   type: PropTypes.string,
   size: PropTypes.string,
