@@ -27,6 +27,15 @@ export const theme = {
     success: '#6abc13',
     error: '#de1609'
   },
+  background: {
+    darkGrey1: '#1f2330',
+    darkGrey2: '#62656e',
+    darkGrey3: '#8f9197',
+    bgGrey1: '#e0e1e3',
+    bgGrey2: '#f4f4f5',
+    bgGrey3: '#fbfbfb',
+    bgScrim: 'rgba(0, 0, 0, 0.32)'
+  },
   white: '#fff',
   black: '#000'
 };
