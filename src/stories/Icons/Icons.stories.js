@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Icons } from '../../components/Icons';
+import Icons from '../../components/Icons';
 import { iconList } from '../../components/Icons/helper';
 
 export default {
