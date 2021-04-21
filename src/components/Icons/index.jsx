@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { getIcon } from './helper';
 
-export const Icons = ({ type, ...rest }) => {
+const Icons = ({ type, ...rest }) => {
   const Icon = getIcon(type);
   return <Icon {...rest} />;
 };
+
+export default Icons;
 
 Icons.propTypes = {
   type: PropTypes.string

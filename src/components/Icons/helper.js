@@ -1,5 +1,7 @@
 import User from './User';
 import AfterNoon from './AfterNoon';
+import Filter from './Filter';
+import Navigation from './Navigation';
 
 export const size = (x, y = x) => ({
   width: x,
@@ -9,7 +11,9 @@ export const size = (x, y = x) => ({
 
 export const iconList = {
   user: User,
-  afternoon: AfterNoon
+  afternoon: AfterNoon,
+  filter: Filter,
+  navigation: Navigation
 };
 
 export const getIcon = (type) => iconList[type];
