@@ -2,6 +2,9 @@
   "name": "@ironlist/ironlist-ui-library",
   "version": "0.1.0",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
@@ -9,16 +12,18 @@
     "README.md"
   ],
   "dependencies": {
-    "classnames": "^2.3.1",
-    "keen-slider": "^5.4.0",
-    "prop-types": "^15.7.2",
-    "styled-components": "^5.2.3"
+    "classnames": "2.3.1",
+    "keen-slider": "5.4.0",
+    "prop-types": "15.7.2",
+    "styled-components": "5.2.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public"
+    "storybook": "start-storybook -p 6006 -s public",
+    "clean": "rimraf dist",
+    "compile": "npm run clean && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__"
   },
   "browserslist": {
     "production": [
@@ -33,25 +38,31 @@
     ]
   },
   "peerDependencies": {
-    "react": "^17.0.2",
+    "react": "17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.2.8",
-    "@storybook/addon-essentials": "^6.2.8",
-    "@storybook/addon-links": "^6.2.8",
-    "@storybook/node-logger": "^6.2.8",
-    "@storybook/preset-create-react-app": "^3.1.7",
-    "@storybook/react": "^6.2.8",
-    "babel-cli": "^6.26.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.24.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^8.2.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "prettier": "^2.2.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "@babel/cli": "7.13.16",
+    "@babel/preset-env": "7.13.15",
+    "@babel/preset-react": "7.13.13",
+    "@storybook/addon-actions": "6.2.8",
+    "@storybook/addon-essentials": "6.2.8",
+    "@storybook/addon-links": "6.2.8",
+    "@storybook/node-logger": "6.2.8",
+    "@storybook/preset-create-react-app": "3.1.7",
+    "@storybook/react": "6.2.8",
+    "babel-cli": "6.26.0",
+    "babel-eslint": "10.1.0",
+    "babel-plugin-styled-components": "1.12.0",
+    "babel-preset-minify": "^0.5.1",
+    "cross-env": "7.0.3",
+    "eslint": "7.24.0",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-config-prettier": "8.2.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "prettier": "2.2.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "react-scripts": "4.0.3"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
