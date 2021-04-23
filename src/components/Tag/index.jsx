@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from '../../theme';
 import { TagContainer } from './style';
 
-export const Tag = ({ children, backgroundColor, hasRoundBorder }) => (
+const Tag = ({ children, backgroundColor, hasRoundBorder }) => (
   <ThemeProvider theme={theme}>
     <TagContainer backgroundColor={backgroundColor} hasRoundBorder={hasRoundBorder}>
       {children}

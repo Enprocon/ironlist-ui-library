@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from '../../theme';
 import { InputContainer } from './style';
 
-export const Input = ({ type, placeholder, size, defaultValue, onChange }) => {
+const Input = ({ type, placeholder, size, defaultValue, onChange }) => {
   const [value, setValue] = useState(defaultValue);
   return (
     <ThemeProvider theme={theme}>
