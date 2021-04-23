@@ -2,9 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useKeenSlider } from 'keen-slider/react';
 import { ThemeProvider } from 'styled-components';
-import 'keen-slider/keen-slider.min.css';
 import { theme } from '../../theme';
-import { Dots, SliderDot, NavigtationWrapper, SliderWrapper } from './style';
+import { Dots, SliderDot, NavigtationWrapper, SliderWrapper, GlobalStyle } from './style';
 
 const Slider = ({ children, hasArrow }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -52,6 +51,7 @@ const Slider = ({ children, hasArrow }) => {
 
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <NavigtationWrapper>
         <SliderWrapper ref={sliderRef} className="keen-slider">
           {React.Children.map(children, (child) => React.cloneElement(child, { className: 'keen-slider__slide' }))}
