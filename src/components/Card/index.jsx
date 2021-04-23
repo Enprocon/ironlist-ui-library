@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
-import { theme } from '../../theme';
+import { theme } from '../theme';
 import { CardContainer, CardText, CardContent, CardInfo, CardNameImage, CardName, CardDescription } from './style';
 
 const Card = ({ text, info, className }) => {

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useKeenSlider } from 'keen-slider/react';
 import { ThemeProvider } from 'styled-components';
-import { theme } from '../../theme';
+import { theme } from '../theme';
 import { Dots, SliderDot, NavigtationWrapper, SliderWrapper, GlobalStyle } from './style';
 
 const Slider = ({ children, hasArrow }) => {

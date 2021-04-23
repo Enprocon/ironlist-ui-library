@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
-import { theme } from '../../theme';
+import { theme } from '../theme';
 import { TagContainer } from './style';
 
 const Tag = ({ children, backgroundColor, hasRoundBorder }) => (

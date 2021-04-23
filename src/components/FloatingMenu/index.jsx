@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import Icons from '../Icons';
 import { FloatingButton, MenuWrapper, IconWrapper, ActiveCircle, Seprator } from './style';
-import { theme } from '../../theme';
+import { theme } from '../theme';
 
 const FloatingMenu = ({ menuList, onMenuClick }) => {
   const onClick = (menu, e) => {
