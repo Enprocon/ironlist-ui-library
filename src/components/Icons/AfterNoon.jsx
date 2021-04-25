@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import c from 'classnames';
 import { size } from './helper';
 
-const AfterNoon = ({ className, fill }) => (
-  <svg className={c('Icon', className)} {...size(24, 24)}>
+const AfterNoon = ({ className, fill, height, width }) => (
+  <svg className={c('Icon', className)} {...size(height, width)}>
     <g fill="none" fillRule="evenodd">
       <g fill={fill || '#62656E'}>
         <g>
@@ -22,10 +22,13 @@ export default AfterNoon;
 
 AfterNoon.propTypes = {
   className: PropTypes.string,
-  fill: PropTypes.string
+  fill: PropTypes.string,
+  height: PropTypes.number,
+  width: PropTypes.number
 };
-
 AfterNoon.defaultProps = {
   className: '',
-  fill: ''
+  fill: '',
+  height: 24,
+  width: 24
 };

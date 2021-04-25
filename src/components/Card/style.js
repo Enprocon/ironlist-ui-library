@@ -15,6 +15,7 @@ export const CardText = styled.p`
   margin-bottom: 16px;
   border-bottom: 1px solid #d8dfe0;
   font-size: 16px;
+  line-height: 1.25;
 `;
 
 export const CardContent = styled.div`

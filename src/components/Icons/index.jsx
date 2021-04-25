@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { getIcon } from './helper';
 
 const Icons = ({ type, ...rest }) => {
+  if (!type) {
+    return null;
+  }
   const Icon = getIcon(type);
   return <Icon {...rest} />;
 };

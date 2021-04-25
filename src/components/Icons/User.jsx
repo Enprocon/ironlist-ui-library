@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import c from 'classnames';
 import { size } from './helper';
 
-const User = ({ className, fill }) => (
-  <svg className={c('Icon', className)} {...size(24, 24)}>
+const User = ({ className, fill, height, width }) => (
+  <svg className={c('Icon', className)} {...size(height, width)}>
     <g fill="none" fillRule="evenodd">
       <g fill={fill || '#62656E'}>
         <g>
@@ -22,10 +22,13 @@ export default User;
 
 User.propTypes = {
   className: PropTypes.string,
-  fill: PropTypes.string
+  fill: PropTypes.string,
+  height: PropTypes.number,
+  width: PropTypes.number
 };
-
 User.defaultProps = {
   className: '',
-  fill: ''
+  fill: '',
+  height: 24,
+  width: 24
 };

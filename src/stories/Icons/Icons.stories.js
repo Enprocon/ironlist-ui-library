@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Icons from '../../components/Icons';
 import { iconList } from '../../components/Icons/helper';
+import Icons from '../../components/Icons';
 
 export default {
   title: 'Example/Icons',
@@ -13,6 +13,7 @@ const Template = () =>
     <div
       style={{
         display: 'flex',
+        alignItems: 'center',
         borderLeft: '1px',
         borderRight: '1px',
         borderBottom: '1px',
@@ -24,8 +25,13 @@ const Template = () =>
         width: '200px'
       }}
     >
-      <div style={{ minWidth: '100px', paddingLeft: '10px', paddingTop: '4px' }}>{key}</div>
-      <div>
+      <div style={{ minWidth: '100px', paddingLeft: '10px', paddingTop: '4px' }}>{key}: </div>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center'
+        }}
+      >
         <Value />
       </div>
     </div>
