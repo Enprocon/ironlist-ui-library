@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle, css } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   .keen-slider {
@@ -29,6 +29,36 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
+export const ArrowWrapper = styled.div`
+  width: 45px;
+  height: 45px;
+  box-shadow: 0 0 8px 0 rgba(55, 70, 95, 0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background-color: ${(props) => props.theme.white};
+  ${(props) =>
+    props.left &&
+    css`
+      left: 5px;
+      svg {
+        transform: rotate(180deg);
+        margin-left: -4px;
+      }
+    `}
+  ${(props) =>
+    props.right &&
+    css`
+      left: auto;
+      right: 5px;
+    `}
+`;
+
 export const Dots = styled.div`
   display: flex;
   justify-content: center;
@@ -46,6 +76,10 @@ export const SliderDot = styled.button`
   background-color: ${(props) => (props.isActive ? props.theme.background.darkGrey2 : props.theme.background.bgGrey1)};
 `;
 
+export const SliderContainer = styled.div`
+  position: relative;
+`;
+
 export const SliderWrapper = styled.div`
   padding-bottom: 48px;
 `;
@@ -53,5 +87,4 @@ export const SliderWrapper = styled.div`
 export const NavigtationWrapper = styled.div`
   position: relative;
   width: fit-content;
-  margin-top: 42px;
 `;

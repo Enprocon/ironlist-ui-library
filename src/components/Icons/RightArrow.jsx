@@ -5,22 +5,15 @@ import { size } from './helper';
 
 const RightArrow = ({ className, fill, height, width }) => (
   <svg className={c('Icon', className)} {...size(height, width)}>
-    <defs>
-      <filter id="qofiktl8ca">
-        <feColorMatrix
-          in="SourceGraphic"
-          values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"
-        />
-      </filter>
-    </defs>
-    <g fill="none" fillRule="evenodd">
-      <g filter="url(#qofiktl8ca)" transform="translate(-1031 -348)">
+    <g xmlns="http://www.w3.org/2000/svg" fill="none" fillRule="evenodd">
+      <g fill={fill || '#62656E'}>
         <g>
-          <path
-            fill={fill || '#002F34'}
-            d="M4.333 1.333L4.333 2.276 5.181 3.123 10.057 8 5.181 12.877 5.181 12.876 4.333 13.724 4.333 14.667 5.276 14.667 6.123 13.819 11 8.943 11 8.943 11.667 8.276 11.667 7.725 9.039 5.096 9.039 5.096 6.123 2.18 5.276 1.333z"
-            transform="translate(1031 348)"
-          />
+          <g>
+            <path
+              d="M6.5 2L6.5 3.414 7.771 4.684 15.086 12 7.771 19.315 7.771 19.314 6.5 20.586 6.5 22 7.914 22 9.184 20.729 16.5 13.414 16.5 13.415 17.5 12.415 17.5 11.587 13.558 7.644 13.559 7.644 9.184 3.27 7.914 2z"
+              transform="translate(-1367 -2242) translate(1356 2232) translate(11 10)"
+            />
+          </g>
         </g>
       </g>
     </g>

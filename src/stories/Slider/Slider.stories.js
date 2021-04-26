@@ -30,5 +30,17 @@ const Template = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  hasArrow: false
+  slidesToPreview: 3,
+  hasArrow: true,
+  hasDots: true,
+  autoScroll: false
+};
+
+export const WithoutDotsAndArrow = Template.bind({});
+WithoutDotsAndArrow.args = {
+  slidesToPreview: 1,
+  hasArrow: false,
+  hasDots: false,
+  autoScroll: true,
+  duration: 3000
 };
