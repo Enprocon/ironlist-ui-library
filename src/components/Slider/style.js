@@ -1,6 +1,7 @@
-import styled, { createGlobalStyle, css } from 'styled-components';
+import styled from '@emotion/styled';
+import { injectGlobal } from '@emotion/css';
 
-export const GlobalStyle = createGlobalStyle`
+injectGlobal = injectGlobal`
   .keen-slider {
     display: flex;
     user-select: none;
@@ -44,7 +45,7 @@ export const ArrowWrapper = styled.div`
   background-color: ${(props) => props.theme.white};
   ${(props) =>
     props.left &&
-    css`
+    `
       left: 5px;
       svg {
         transform: rotate(180deg);
@@ -53,7 +54,7 @@ export const ArrowWrapper = styled.div`
     `}
   ${(props) =>
     props.right &&
-    css`
+    `
       left: auto;
       right: 5px;
     `}

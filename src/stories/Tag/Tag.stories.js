@@ -11,7 +11,11 @@ export default {
   }
 };
 
-const Template = ({ children, ...rest }) => <Tag {...rest}>{children}</Tag>;
+const Template = ({ children, ...rest }) => (
+  <div style={{ padding: '20px', background: 'black', width: '120px' }}>
+    <Tag {...rest}>{children}</Tag>
+  </div>
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -21,9 +25,17 @@ Primary.args = {
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  children: <div>Agriculture</div>,
+  children: 'Agriculture',
   backgroundColor: 'blue',
   hasRoundBorder: true
+};
+
+export const OnCard = Template.bind({});
+OnCard.args = {
+  children: 'Agriculture',
+  backgroundColor: 'green',
+  hasRoundBorder: true,
+  isOnCard: true
 };
 
 Template.propTypes = {

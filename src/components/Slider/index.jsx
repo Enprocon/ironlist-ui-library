@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { useKeenSlider } from 'keen-slider/react';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'emotion-theming';
 import { theme } from '../theme';
 import Icons from '../Icons';
 import {
@@ -10,7 +10,7 @@ import {
   NavigtationWrapper,
   SliderWrapper,
   ArrowWrapper,
-  GlobalStyle,
+  // GlobalStyle,
   SliderContainer
 } from './style';
 
@@ -85,7 +85,7 @@ const Slider = ({ children, hasArrow, hasDots, slidesToPreview, duration, autoSc
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
       <SliderContainer>
         <NavigtationWrapper>
           <SliderWrapper ref={sliderRef} className="keen-slider">

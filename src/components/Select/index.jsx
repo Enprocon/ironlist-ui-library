@@ -1,6 +1,6 @@
 import React, { useState, Children, cloneElement, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'emotion-theming';
 import useOutSideClick from './useOutSideClick';
 import { theme } from '../theme';
 import Icons from '../Icons';
@@ -11,7 +11,8 @@ const Select = ({ defaultValue, children, onChange, isMenuOpen, onSelectBoxClick
   const selectRef = useRef(null);
   const [isOpen, setIsOpen] = useState(isMenuOpen);
   const handleClick = (e) => {
-    if (!selectRef.current.contains(e.target)) {
+    const isIcon = e.target && e.target.className && e.target.className.baseVal;
+    if (!selectRef.current.contains(e.target) && !(isIcon && isIcon.includes('select-icon'))) {
       setIsOpen(false);
     }
   };
@@ -30,7 +31,7 @@ const Select = ({ defaultValue, children, onChange, isMenuOpen, onSelectBoxClick
     <ThemeProvider theme={theme}>
       <SelectContainer ref={selectRef} onClick={(e) => onSelectClick(e)}>
         {selectedValue ? <div>{selectedValue.label}</div> : placeholder}
-        <Icons type={arrowType} className="select-icon" />
+        <Icons type={arrowType} height={16} width={16} className="select-icon" />
       </SelectContainer>
       {isOpen && (
         <OptionList style={{ width: selectRef.current.offsetWidth }}>

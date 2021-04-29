@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from '@emotion/styled';
 
 export const ButtonWrapper = styled.button`
   box-sizing: border-box;
@@ -10,7 +10,7 @@ export const ButtonWrapper = styled.button`
   align-items: center;
   ${(props) => {
     if (props.size === 'large') {
-      return css`
+      return `
         font-size: 14px;
         height: 40px;
         letter-spacing: 0.6px;
@@ -24,7 +24,7 @@ export const ButtonWrapper = styled.button`
   }}
   ${(props) => {
     if (props.type === 'primary') {
-      return css`
+      return `
         background-color: ${props.theme.primary};
         color: ${props.theme.white};
         &:hover {
@@ -33,8 +33,9 @@ export const ButtonWrapper = styled.button`
         &:active {
           background-color: ${props.theme.primaryTint.two};
         }
-        ${props.disabled &&
-        css`
+        ${
+          props.disabled &&
+          `
           background-color: ${props.theme.background.bgGrey1};
           opacity: 0.3;
           color: ${props.theme.background.darkGrey1};
@@ -45,11 +46,12 @@ export const ButtonWrapper = styled.button`
           &:active {
             background-color: ${props.theme.background.bgGrey1};
           }
-        `}
+        `
+        }
       `;
     }
     if (props.type === 'secondary') {
-      return css`
+      return `
         background-color: ${props.theme.white};
         border: 2px solid ${props.theme.primary};
         position: relative;
@@ -85,8 +87,9 @@ export const ButtonWrapper = styled.button`
           background-color: ${props.theme.white};
           border-color: ${props.theme.primaryTint.two};
         }
-        ${props.disabled &&
-        css`
+        ${
+          props.disabled &&
+          `
           opacity: 0.4;
           color: ${props.theme.primary};
           cursor: default;
@@ -99,21 +102,24 @@ export const ButtonWrapper = styled.button`
           &:active {
             background-color: ${props.theme.white};
           }
-        `}
+        `
+        }
       `;
     }
     if (props.type === 'tertiary') {
-      return css`
+      return `
         background-color: transparent;
         color: ${props.theme.primary};
         &:active {
           opacity: 0.8;
         }
-        ${props.disabled &&
-        css`
+        ${
+          props.disabled &&
+          `
           cursor: default;
           opacity: 0.4;
-        `}
+        `
+        }
       `;
     }
     return '';

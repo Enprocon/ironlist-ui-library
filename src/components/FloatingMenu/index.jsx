@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'emotion-theming';
 import Icons from '../Icons';
 import { FloatingButton, MenuWrapper, IconWrapper, ActiveCircle, Seprator } from './style';
 import { theme } from '../theme';

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const CardContainer = styled.div`
   box-shadow: 0 10px 20px 0 rgba(55, 70, 95, 0.12);

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from '@emotion/styled';
 
 export const SelectContainer = styled.div`
   height: 32px;
@@ -29,19 +29,19 @@ export const OptionContainer = styled.div`
   font-size: 16px;
   ${(props) =>
     props.optionBackgroundColor
-      ? css`
+      ? `
           background-color: ${props.optionBackgroundColor};
         `
       : `background-color: ${props.theme.white}`}
   ${(props) =>
     props.isFirst &&
-    css`
+    `
       border-top-right-radius: 4px;
       border-top-left-radius: 4px;
     `}
   ${(props) =>
     props.isLast &&
-    css`
+    `
       border-bottom-right-radius: 4px;
       border-bottom-left-radius: 4px;
     `}

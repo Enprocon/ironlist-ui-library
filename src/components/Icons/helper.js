@@ -7,6 +7,8 @@ import Down from './Down';
 import Location from './Location';
 import Search from './Search';
 import RightArrow from './RightArrow';
+import SocialShare from './SocialShare';
+import Like from './Like';
 
 const size = (x, y = x) => ({
   width: x,
@@ -23,7 +25,9 @@ const iconList = {
   down: Down,
   location: Location,
   search: Search,
-  rightArrow: RightArrow
+  rightArrow: RightArrow,
+  'social-share': SocialShare,
+  like: Like
 };
 
 const getIcon = (type) => iconList[type];
