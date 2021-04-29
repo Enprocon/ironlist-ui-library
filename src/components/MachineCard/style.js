@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { css } from '@emotion/css';
 
 export const CardWrapper = styled.div`

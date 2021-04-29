@@ -1,7 +1,6 @@
-import styled from '@emotion/styled';
-import { injectGlobal } from '@emotion/css';
+import styled, { createGlobalStyle } from 'styled-components';
 
-injectGlobal = injectGlobal`
+export const GlobalStyle = createGlobalStyle`
   .keen-slider {
     display: flex;
     user-select: none;

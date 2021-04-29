@@ -1,6 +1,6 @@
 import React, { useState, Children, cloneElement, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'emotion-theming';
+import { ThemeProvider } from 'styled-components';
 import useOutSideClick from './useOutSideClick';
 import { theme } from '../theme';
 import Icons from '../Icons';

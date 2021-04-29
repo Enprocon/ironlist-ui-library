@@ -6,7 +6,7 @@
   },
   "root": true,
   "extends": ["airbnb", "airbnb/hooks", "plugin:prettier/recommended", "prettier"],
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "settings": { "import/resolver": { "node": {}, "webpack": {} }, "react": { "version": "detect" } },
   "rules": {
     "comma-dangle": ["error", "never"],
