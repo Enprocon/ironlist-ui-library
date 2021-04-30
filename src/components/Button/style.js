@@ -109,7 +109,7 @@ export const ButtonWrapper = styled.button`
     if (props.type === 'tertiary') {
       return `
         background-color: transparent;
-        color: ${props.theme.primary};
+        color: ${props.color || props.theme.primary};
         &:active {
           opacity: 0.8;
         }

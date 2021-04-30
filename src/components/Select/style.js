@@ -5,7 +5,7 @@ export const SelectContainer = styled.div`
   padding: 8px;
   padding-left: 12px;
   border-radius: 4px;
-  border: 2px solid ${(props) => props.theme.black};
+  border: 2px solid ${(props) => props.theme.white};
   width: fit-content;
   box-sizing: border-box;
   cursor: pointer;
@@ -22,17 +22,16 @@ export const OptionList = styled.div`
   box-shadow: 0 6px 10px 0 rgba(55, 70, 95, 0.12);
 `;
 
+export const SelectedText = styled.div`
+  color: ${(props) => props.theme.white};
+`;
+
 export const OptionContainer = styled.div`
   font-weight: 600;
   padding: 8px;
   cursor: pointer;
   font-size: 16px;
-  ${(props) =>
-    props.optionBackgroundColor
-      ? `
-          background-color: ${props.optionBackgroundColor};
-        `
-      : `background-color: ${props.theme.white}`}
+  background-color: ${(props) => (props.optionBackgroundColor ? props.optionBackgroundColor : props.theme.white)};
   ${(props) =>
     props.isFirst &&
     `

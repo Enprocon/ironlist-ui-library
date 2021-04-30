@@ -1,4 +1,5 @@
 import React from 'react';
+import { css } from '@emotion/css';
 
 import { Select, Option } from '../../components/Select';
 
@@ -8,10 +9,19 @@ export default {
 };
 
 const Template = (args) => (
-  <Select {...args}>
-    <Option value="first">First</Option>
-    <Option value="second">Second</Option>
-  </Select>
+  <div
+    className={css`
+      background: #daa3a3;
+      padding: 20px 40px;
+      width: fit-content;
+      min-height: 200px;
+    `}
+  >
+    <Select {...args}>
+      <Option value="first">First</Option>
+      <Option value="second">Second</Option>
+    </Select>
+  </div>
 );
 
 export const Primary = Template.bind({});

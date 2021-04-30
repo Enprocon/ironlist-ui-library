@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import useOutSideClick from './useOutSideClick';
 import { theme } from '../theme';
 import Icons from '../Icons';
-import { SelectContainer, OptionList, OptionContainer } from './style';
+import { SelectContainer, OptionList, OptionContainer, SelectedText } from './style';
 
 const Select = ({ defaultValue, children, onChange, isMenuOpen, onSelectBoxClick, placeholder }) => {
   const [selectedValue, setSelectedValue] = useState(defaultValue);
@@ -30,8 +30,8 @@ const Select = ({ defaultValue, children, onChange, isMenuOpen, onSelectBoxClick
   return (
     <ThemeProvider theme={theme}>
       <SelectContainer ref={selectRef} onClick={(e) => onSelectClick(e)}>
-        {selectedValue ? <div>{selectedValue.label}</div> : placeholder}
-        <Icons type={arrowType} height={16} width={16} className="select-icon" />
+        {selectedValue ? <SelectedText>{selectedValue.label}</SelectedText> : placeholder}
+        <Icons type={arrowType} height={16} width={16} fill={theme.white} className="select-icon" />
       </SelectContainer>
       {isOpen && (
         <OptionList style={{ width: selectRef.current.offsetWidth }}>

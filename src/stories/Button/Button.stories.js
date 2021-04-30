@@ -1,4 +1,5 @@
 import React from 'react';
+import { css } from '@emotion/css';
 
 import Button from '../../components/Button';
 
@@ -67,4 +68,26 @@ TertiaryDisabled.args = {
   className: '',
   size: 'large',
   disabled: true
+};
+
+const WhiteButtonTemplate = (args) => (
+  <div
+    className={css`
+      background-color: black;
+      width: fit-content;
+      padding: 20px 40px;
+    `}
+  >
+    <Button {...args}>Submit</Button>
+  </div>
+);
+
+export const WhiteButton = WhiteButtonTemplate.bind({});
+WhiteButton.args = {
+  type: 'tertiary',
+  children: 'Submit',
+  onClick: () => {},
+  className: '',
+  size: 'large',
+  color: 'white'
 };
