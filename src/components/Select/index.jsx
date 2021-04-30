@@ -6,7 +6,7 @@ import { theme } from '../theme';
 import Icons from '../Icons';
 import { SelectContainer, OptionList, OptionContainer, SelectedText } from './style';
 
-const Select = ({ defaultValue, children, onChange, isMenuOpen, onSelectBoxClick, placeholder }) => {
+const Select = ({ defaultValue, children, onChange, isMenuOpen, onSelectBoxClick, placeholder, width }) => {
   const [selectedValue, setSelectedValue] = useState(defaultValue);
   const selectRef = useRef(null);
   const [isOpen, setIsOpen] = useState(isMenuOpen);
@@ -26,15 +26,16 @@ const Select = ({ defaultValue, children, onChange, isMenuOpen, onSelectBoxClick
     setIsOpen(!isOpen);
     onSelectBoxClick(e);
   };
+  const selectWidth = width || selectRef?.current?.offsetWidth;
   const arrowType = isOpen ? 'up' : 'down';
   return (
     <ThemeProvider theme={theme}>
-      <SelectContainer ref={selectRef} onClick={(e) => onSelectClick(e)}>
+      <SelectContainer ref={selectRef} onClick={(e) => onSelectClick(e)} width={selectWidth}>
         {selectedValue ? <SelectedText>{selectedValue.label}</SelectedText> : placeholder}
         <Icons type={arrowType} height={16} width={16} fill={theme.white} className="select-icon" />
       </SelectContainer>
       {isOpen && (
-        <OptionList style={{ width: selectRef.current.offsetWidth }}>
+        <OptionList style={{ width: selectWidth || selectRef.current.offsetWidth }}>
           {Children.map(children, (child, index) =>
             cloneElement(child, {
               onClick: onOptionClick,
@@ -69,7 +70,8 @@ Select.propTypes = {
   ]),
   onChange: PropTypes.func,
   onSelectBoxClick: PropTypes.func,
-  isMenuOpen: PropTypes.bool
+  isMenuOpen: PropTypes.bool,
+  width: PropTypes.string
 };
 
 Select.defaultProps = {
@@ -78,7 +80,8 @@ Select.defaultProps = {
   children: [],
   onChange: () => {},
   onSelectBoxClick: () => {},
-  isMenuOpen: false
+  isMenuOpen: false,
+  width: ''
 };
 
 Option.propTypes = {

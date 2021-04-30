@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/css';
 
-import { Select, Option } from '../../components/Select';
+import { Select, Option } from '../../components/index';
 
 export default {
   title: 'Example/Select',
@@ -28,6 +28,7 @@ export const Primary = Template.bind({});
 Primary.args = {
   defaultValue: { label: 'First', value: 'first' },
   onChange: () => {},
-  onSelectBoxClick: () => {},
-  isMenuOpen: false
+  onSelectBoxClick: () => {}
+  // isMenuOpen: true
+  // width: '150px'
 };

@@ -6,11 +6,12 @@ export const SelectContainer = styled.div`
   padding-left: 12px;
   border-radius: 4px;
   border: 2px solid ${(props) => props.theme.white};
-  width: fit-content;
+  width: ${(props) => (props.width ? props.width : 'fit-content')};
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 4px;
   font-family: Geomanist-Medium;
   .select-icon {
