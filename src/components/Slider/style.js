@@ -86,5 +86,4 @@ export const SliderWrapper = styled.div`
 
 export const NavigtationWrapper = styled.div`
   position: relative;
-  width: fit-content;
 `;

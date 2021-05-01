@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import Slider from '../../components/Slider';
 import Card from '../../components/Card';
@@ -39,6 +40,37 @@ Primary.args = {
 
 export const WithoutDotsAndArrow = Template.bind({});
 WithoutDotsAndArrow.args = {
+  slidesToPreview: 1,
+  hasArrow: false,
+  hasDots: false,
+  autoScroll: true,
+  duration: 3000
+};
+
+const images = [
+  'https://d3g7ucapfhrqqt.cloudfront.net/images/artyom-korshunov.jpg',
+  'https://d3g7ucapfhrqqt.cloudfront.net/images/dominik-vanyi.jpg'
+];
+
+const Image = styled.div`
+  background: url(${(props) => props.url}) no-repeat center center;
+  background-size: cover;
+  height: 540px;
+`;
+
+const Banner = (args) => (
+  <Slider {...args}>
+    <div>
+      <Image url={images[0]} />
+    </div>
+    <div>
+      <Image url={images[1]} />
+    </div>
+  </Slider>
+);
+
+export const BannerSlider = Banner.bind({});
+BannerSlider.args = {
   slidesToPreview: 1,
   hasArrow: false,
   hasDots: false,

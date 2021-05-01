@@ -36,7 +36,7 @@ const ArrowRight = ({ disabled, onClick }) => {
   );
 };
 
-const Slider = ({ children, hasArrow, hasDots, slidesToPreview, duration, autoScroll, spacing }) => {
+const Slider = ({ children, hasArrow, hasDots, slidesToPreview, duration, autoScroll, spacing, slideProps }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [pause, setPause] = useState(false);
   const timer = useRef();
@@ -89,7 +89,7 @@ const Slider = ({ children, hasArrow, hasDots, slidesToPreview, duration, autoSc
       <SliderContainer>
         <NavigtationWrapper>
           <SliderWrapper ref={sliderRef} className="keen-slider">
-            {Children.map(children, (child) => cloneElement(child, { className: 'keen-slider__slide' }))}
+            {Children.map(children, (child) => cloneElement(child, { className: 'keen-slider__slide', ...slideProps }))}
           </SliderWrapper>
         </NavigtationWrapper>
         {slider && hasArrow && (
@@ -129,7 +129,8 @@ Slider.propTypes = {
   slidesToPreview: PropTypes.number,
   duration: PropTypes.number,
   autoScroll: PropTypes.bool,
-  spacing: PropTypes.number
+  spacing: PropTypes.number,
+  slideProps: PropTypes.objectOf(PropTypes.any)
 };
 
 Slider.defaultProps = {
@@ -139,7 +140,8 @@ Slider.defaultProps = {
   slidesToPreview: 1,
   autoScroll: false,
   duration: 3000,
-  spacing: 0
+  spacing: 0,
+  slideProps: {}
 };
 
 ArrowLeft.propTypes = {
