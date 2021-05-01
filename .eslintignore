@@ -2,4 +2,3 @@ node_modules/
 coverage/
 !.dependency-cruiser.js
 dist
-src/dist

@@ -36,13 +36,13 @@ const ArrowRight = ({ disabled, onClick }) => {
   );
 };
 
-const Slider = ({ children, hasArrow, hasDots, slidesToPreview, duration, autoScroll }) => {
+const Slider = ({ children, hasArrow, hasDots, slidesToPreview, duration, autoScroll, spacing }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [pause, setPause] = useState(false);
   const timer = useRef();
   const [sliderRef, slider] = useKeenSlider({
     initial: 0,
-    spacing: 64,
+    spacing,
     slidesPerView: slidesToPreview || 1,
     centered: true,
     loop: true,
@@ -128,7 +128,8 @@ Slider.propTypes = {
   hasDots: PropTypes.bool,
   slidesToPreview: PropTypes.number,
   duration: PropTypes.number,
-  autoScroll: PropTypes.bool
+  autoScroll: PropTypes.bool,
+  spacing: PropTypes.number
 };
 
 Slider.defaultProps = {
@@ -137,7 +138,8 @@ Slider.defaultProps = {
   hasDots: false,
   slidesToPreview: 1,
   autoScroll: false,
-  duration: 3000
+  duration: 3000,
+  spacing: 0
 };
 
 ArrowLeft.propTypes = {

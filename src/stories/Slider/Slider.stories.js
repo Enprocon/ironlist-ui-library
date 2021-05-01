@@ -33,7 +33,8 @@ Primary.args = {
   slidesToPreview: 3,
   hasArrow: true,
   hasDots: true,
-  autoScroll: false
+  autoScroll: false,
+  spacing: 64
 };
 
 export const WithoutDotsAndArrow = Template.bind({});
