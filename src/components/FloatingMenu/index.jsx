@@ -1,30 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'styled-components';
+import { useThemeContext } from '../ThemeProvider';
 import Icons from '../Icons';
 import { FloatingButton, MenuWrapper, IconWrapper, ActiveCircle, Seprator } from './style';
-import { theme } from '../theme';
 
 const FloatingMenu = ({ menuList, onMenuClick }) => {
+  const theme = useThemeContext();
+
   const onClick = (menu, e) => {
     onMenuClick(menu, e);
   };
+
   return (
-    <ThemeProvider theme={theme}>
-      <FloatingButton>
-        {menuList.map((menu, index) => (
-          <>
-            <MenuWrapper isFirst={index === 0} isLast={index === menuList.length - 1} onClick={(e) => onClick(menu, e)}>
-              <IconWrapper>
-                {menu.isActive && <ActiveCircle />}
-                <Icons type={menu.icon} />
-              </IconWrapper>
-            </MenuWrapper>
-            {index !== menuList.length - 1 ? <Seprator /> : null}
-          </>
-        ))}
-      </FloatingButton>
-    </ThemeProvider>
+    <FloatingButton>
+      {menuList.map((menu, index) => (
+        <>
+          <MenuWrapper isFirst={index === 0} isLast={index === menuList.length - 1} onClick={(e) => onClick(menu, e)}>
+            <IconWrapper>
+              {menu.isActive && <ActiveCircle theme={theme} />}
+              <Icons type={menu.icon} />
+            </IconWrapper>
+          </MenuWrapper>
+          {index !== menuList.length - 1 ? <Seprator theme={theme} /> : null}
+        </>
+      ))}
+    </FloatingButton>
   );
 };
 

@@ -1,4 +1,4 @@
-import set from 'lodash/set';
+import set from 'lodash.set';
 
 const processTheme = ({ theme, prefix }) => (key) => {
   const nextThemeValue = theme[key];

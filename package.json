@@ -15,7 +15,7 @@
     "@emotion/css": "11.1.3",
     "classnames": "2.3.1",
     "keen-slider": "5.4.0",
-    "lodash": "^4.17.21",
+    "lodash.set": "^4.3.2",
     "styled-components": "^5.2.3"
   },
   "scripts": {

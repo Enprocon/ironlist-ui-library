@@ -1,18 +1,20 @@
 import React from 'react';
 import c from 'classnames';
 import PropTypes from 'prop-types';
+import { useThemeContext } from '../ThemeProvider';
 import { getDefaultComponent } from './utils';
 import { textAlignStyles, textColorStyles, textTransformStyles, variantStyles, opacityStyles } from './styles';
 
 function Typography(props) {
   const { children, variant, className, opacity, transform, align, color, ...rest } = props;
   const As = getDefaultComponent(variant);
+  const theme = useThemeContext();
 
   return (
     <As
       className={c(
         className,
-        textColorStyles(color),
+        textColorStyles(color || theme.background.darkGrey1),
         variant,
         variantStyles,
         `align-${align}`,
@@ -62,7 +64,7 @@ Typography.propTypes = {
 Typography.defaultProps = {
   opacity: 100,
   className: '',
-  color: 'background-darkGrey1',
+  color: '',
   align: '',
   transform: '',
   variant: 'p1'

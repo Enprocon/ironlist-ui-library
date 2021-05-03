@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'styled-components';
+import { useThemeContext } from '../ThemeProvider';
 import Tag from '../Tag';
 import Icons from '../Icons';
-import { theme } from '../theme';
 import {
   CardWrapper,
   CardImageWrapper,
@@ -35,46 +34,40 @@ const MachineCard = ({
   tag
 }) => {
   const [backgroundImage, setBackgroundImage] = useState('');
+  const theme = useThemeContext();
   const imageObject = new Image();
   imageObject.onload = () => {
     setBackgroundImage(image);
   };
   imageObject.src = image;
   return (
-    <ThemeProvider theme={theme}>
-      <CardWrapper>
-        <div className={headerWrapper}>
-          <CardImageWrapper />
-          <CardImage src={backgroundImage} />
-          <div className={iconWrapper}>
-            <Icons
-              type="social-share"
-              fill={theme.white}
-              className="card-icon"
-              onClick={() => onShareClick(itemInfo)}
-            />
-            <Icons type="like" fill={theme.white} className="card-icon" onClick={() => onLikeClick(itemInfo)} />
-          </div>
-          <Tag isOnCard hasRoundBorder backgroundColor={tag.backgroundColor} className={cardTag}>
-            {tag.label}
-          </Tag>
+    <CardWrapper>
+      <div className={headerWrapper}>
+        <CardImageWrapper />
+        <CardImage src={backgroundImage} />
+        <div className={iconWrapper}>
+          <Icons type="social-share" fill={theme.white} className="card-icon" onClick={() => onShareClick(itemInfo)} />
+          <Icons type="like" fill={theme.white} className="card-icon" onClick={() => onLikeClick(itemInfo)} />
         </div>
-        <CardTitle>{title}</CardTitle>
-        <CardSubtitle>{subTitle}</CardSubtitle>
-        <SaleWrapper>
-          {saleInfo}
-          <DotSeprator />
-          <Dealer>{dealer}</Dealer>
-        </SaleWrapper>
-        <div className={infoWrapper}>
-          <Location>
-            <Icons type="location" />
-            {location}
-          </Location>
-          <Distance>{distance}</Distance>
-        </div>
-      </CardWrapper>
-    </ThemeProvider>
+        <Tag isOnCard hasRoundBorder backgroundColor={tag.backgroundColor} className={cardTag}>
+          {tag.label}
+        </Tag>
+      </div>
+      <CardTitle theme={theme}>{title}</CardTitle>
+      <CardSubtitle>{subTitle}</CardSubtitle>
+      <SaleWrapper>
+        {saleInfo}
+        <DotSeprator />
+        <Dealer>{dealer}</Dealer>
+      </SaleWrapper>
+      <div className={infoWrapper}>
+        <Location theme={theme}>
+          <Icons type="location" />
+          {location}
+        </Location>
+        <Distance theme={theme}>{distance}</Distance>
+      </div>
+    </CardWrapper>
   );
 };
 

@@ -184,5 +184,5 @@ export const opacityStyles = css`
 `;
 
 export const textColorStyles = (color) => css`
-  color: var(--${color});
+  color: ${color};
 `;

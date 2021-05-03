@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef, Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { useKeenSlider } from 'keen-slider/react';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../theme';
+import { useThemeContext } from '../ThemeProvider';
 import Icons from '../Icons';
 import {
   Dots,
@@ -15,11 +14,14 @@ import {
 } from './style';
 
 const ArrowLeft = ({ disabled, onClick }) => {
+  const theme = useThemeContext();
+
   if (disabled) {
     return null;
   }
+
   return (
-    <ArrowWrapper onClick={onClick} left>
+    <ArrowWrapper theme={theme} onClick={onClick} left>
       <Icons type="rightArrow" />
     </ArrowWrapper>
   );
@@ -40,6 +42,7 @@ const Slider = ({ children, hasArrow, hasDots, slidesToPreview, duration, autoSc
   const [currentSlide, setCurrentSlide] = useState(0);
   const [pause, setPause] = useState(false);
   const timer = useRef();
+  const theme = useThemeContext();
   const [sliderRef, slider] = useKeenSlider({
     initial: 0,
     spacing,
@@ -84,7 +87,7 @@ const Slider = ({ children, hasArrow, hasDots, slidesToPreview, duration, autoSc
   }, [pause, slider, duration, autoScroll]);
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <GlobalStyle />
       <SliderContainer>
         <NavigtationWrapper>
@@ -106,6 +109,7 @@ const Slider = ({ children, hasArrow, hasDots, slidesToPreview, duration, autoSc
             {[...Array(slider.details().size).keys()].map((idx) => (
               <SliderDot
                 key={idx}
+                theme={theme}
                 role="presentation"
                 onClick={() => {
                   slider.moveToSlideRelative(idx);
@@ -116,7 +120,7 @@ const Slider = ({ children, hasArrow, hasDots, slidesToPreview, duration, autoSc
           </Dots>
         )}
       </SliderContainer>
-    </ThemeProvider>
+    </>
   );
 };
 

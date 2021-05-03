@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../theme';
+import { useThemeContext } from '../ThemeProvider';
 import { TagContainer } from './style';
 
-const Tag = ({ children, backgroundColor, hasRoundBorder, isOnCard, className }) => (
-  <ThemeProvider theme={theme}>
+const Tag = ({ children, backgroundColor, hasRoundBorder, isOnCard, className }) => {
+  const theme = useThemeContext();
+
+  return (
     <TagContainer
+      theme={theme}
       backgroundColor={backgroundColor}
       hasRoundBorder={hasRoundBorder}
       isOnCard={isOnCard}
@@ -14,8 +16,8 @@ const Tag = ({ children, backgroundColor, hasRoundBorder, isOnCard, className })
     >
       {children}
     </TagContainer>
-  </ThemeProvider>
-);
+  );
+};
 
 export default Tag;
 

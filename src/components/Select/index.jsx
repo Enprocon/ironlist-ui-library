@@ -1,12 +1,12 @@
 import React, { useState, Children, cloneElement, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'styled-components';
+import { useThemeContext } from '../ThemeProvider';
 import useOutSideClick from './useOutSideClick';
-import { theme } from '../theme';
 import Icons from '../Icons';
 import { SelectContainer, OptionList, OptionContainer, SelectedText } from './style';
 
 const Select = ({ defaultValue, children, onChange, isMenuOpen, onSelectBoxClick, placeholder, width }) => {
+  const theme = useThemeContext();
   const [selectedValue, setSelectedValue] = useState(defaultValue);
   const selectRef = useRef(null);
   const [isOpen, setIsOpen] = useState(isMenuOpen);
@@ -28,14 +28,15 @@ const Select = ({ defaultValue, children, onChange, isMenuOpen, onSelectBoxClick
   };
   const selectWidth = width || selectRef?.current?.offsetWidth;
   const arrowType = isOpen ? 'up' : 'down';
+
   return (
-    <ThemeProvider theme={theme}>
-      <SelectContainer ref={selectRef} onClick={(e) => onSelectClick(e)} width={selectWidth}>
-        {selectedValue ? <SelectedText>{selectedValue.label}</SelectedText> : placeholder}
+    <>
+      <SelectContainer ref={selectRef} theme={theme} onClick={(e) => onSelectClick(e)} width={selectWidth}>
+        {selectedValue ? <SelectedText theme={theme}>{selectedValue.label}</SelectedText> : placeholder}
         <Icons type={arrowType} height={16} width={16} fill={theme.white} className="select-icon" />
       </SelectContainer>
       {isOpen && (
-        <OptionList style={{ width: selectWidth || selectRef.current.offsetWidth }}>
+        <OptionList theme={theme} style={{ width: selectWidth || selectRef.current.offsetWidth }}>
           {Children.map(children, (child, index) =>
             cloneElement(child, {
               onClick: onOptionClick,
@@ -45,15 +46,24 @@ const Select = ({ defaultValue, children, onChange, isMenuOpen, onSelectBoxClick
           )}
         </OptionList>
       )}
-    </ThemeProvider>
+    </>
   );
 };
 
-const Option = ({ value, children, onClick, isFirst, isLast }) => (
-  <OptionContainer isFirst={isFirst} isLast={isLast} onClick={() => onClick({ label: children, value })}>
-    {children}
-  </OptionContainer>
-);
+const Option = ({ value, children, onClick, isFirst, isLast }) => {
+  const theme = useThemeContext();
+
+  return (
+    <OptionContainer
+      theme={theme}
+      isFirst={isFirst}
+      isLast={isLast}
+      onClick={() => onClick({ label: children, value })}
+    >
+      {children}
+    </OptionContainer>
+  );
+};
 
 export { Select, Option };
 export default Select;

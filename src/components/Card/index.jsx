@@ -1,23 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../theme';
 import { CardContainer, CardText, CardContent, CardInfo, CardNameImage, CardName, CardDescription } from './style';
 
 const Card = ({ text, info, className }) => {
   return (
-    <ThemeProvider theme={theme}>
-      <CardContainer className={className}>
-        <CardText>{text}</CardText>
-        <CardContent>
-          {info.image ? null : <CardNameImage>{info.name[0]}</CardNameImage>}
-          <CardInfo>
-            <CardName>{info.name}</CardName>
-            <CardDescription>{info.description}</CardDescription>
-          </CardInfo>
-        </CardContent>
-      </CardContainer>
-    </ThemeProvider>
+    <CardContainer className={className}>
+      <CardText>{text}</CardText>
+      <CardContent>
+        {info.image ? null : <CardNameImage>{info.name[0]}</CardNameImage>}
+        <CardInfo>
+          <CardName>{info.name}</CardName>
+          <CardDescription>{info.description}</CardDescription>
+        </CardInfo>
+      </CardContent>
+    </CardContainer>
   );
 };
 

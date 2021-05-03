@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../theme';
+import { useThemeContext } from '../ThemeProvider';
 import { InputContainer } from './style';
 
 const Input = ({ type, placeholder, size, defaultValue, onChange }) => {
   const [value, setValue] = useState(defaultValue);
+  const theme = useThemeContext();
   return (
-    <ThemeProvider theme={theme}>
-      <InputContainer
-        type={type}
-        placeholder={placeholder}
-        size={size}
-        value={value}
-        onChange={(e) => {
-          const text = e.target.value;
-          setValue(text);
-          onChange(text);
-        }}
-      />
-    </ThemeProvider>
+    <InputContainer
+      type={type}
+      theme={theme}
+      placeholder={placeholder}
+      size={size}
+      value={value}
+      onChange={(e) => {
+        const text = e.target.value;
+        setValue(text);
+        onChange(text);
+      }}
+    />
   );
 };
 
