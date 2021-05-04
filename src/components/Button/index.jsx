@@ -1,28 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../theme';
+import { useThemeContext } from '../ThemeProvider';
 import { ButtonWrapper } from './style';
 
 const Button = ({ children, onClick, type, className, size, disabled, color }) => {
+  const theme = useThemeContext();
+
   const onButtonClick = (e) => {
     if (!disabled) {
       onClick(e);
     }
   };
+
   return (
-    <ThemeProvider theme={theme}>
-      <ButtonWrapper
-        type={type}
-        size={size}
-        disabled={disabled}
-        onClick={onButtonClick}
-        className={className}
-        color={color}
-      >
-        {children}
-      </ButtonWrapper>
-    </ThemeProvider>
+    <ButtonWrapper
+      theme={theme}
+      type={type}
+      size={size}
+      disabled={disabled}
+      onClick={onButtonClick}
+      className={className}
+      color={color}
+    >
+      {children}
+    </ButtonWrapper>
   );
 };
 
