@@ -21,6 +21,8 @@ export const SelectContainer = styled.div`
 
 export const OptionList = styled.div`
   box-shadow: 0 6px 10px 0 rgba(55, 70, 95, 0.12);
+  position: absolute;
+  z-index: 999;
 `;
 
 export const SelectedText = styled.div`
