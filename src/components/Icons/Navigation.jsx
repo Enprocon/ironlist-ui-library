@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import c from 'classnames';
-import { size } from './helper';
 
 const Navigation = ({ className, fill, height, width }) => (
-  <svg className={c('Icon', className)} {...size(height, width)}>
+  <svg className={c('Icon', className)} height={height} width={width} viewBox="0 0 16 16">
     <g fill="none" fillRule="evenodd" opacity=".8">
       <g fill={fill || '#62656E'}>
         <g>
@@ -31,6 +30,6 @@ Navigation.propTypes = {
 Navigation.defaultProps = {
   className: '',
   fill: '',
-  height: 24,
-  width: 24
+  height: 16,
+  width: 16
 };

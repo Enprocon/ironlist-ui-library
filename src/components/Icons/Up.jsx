@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import c from 'classnames';
-import { size } from './helper';
 
 const Up = ({ className, fill, height, width }) => (
-  <svg className={c('Icon', className)} {...size(height, width)}>
+  <svg className={c('Icon', className)} height={height} width={width} viewBox="0 0 20 20">
     <g fill="none" fillRule="evenodd">
       <g fill={fill || '#62656E'}>
         <g>
@@ -31,6 +30,6 @@ Up.propTypes = {
 Up.defaultProps = {
   className: '',
   fill: '',
-  height: 24,
-  width: 24
+  height: 20,
+  width: 20
 };

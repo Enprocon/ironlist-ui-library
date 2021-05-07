@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import c from 'classnames';
-import { size } from './helper';
 
 const RightArrow = ({ className, fill, height, width }) => (
-  <svg className={c('Icon', className)} {...size(height, width)}>
-    <g xmlns="http://www.w3.org/2000/svg" fill="none" fillRule="evenodd">
+  <svg className={c('Icon', className)} height={height} width={width} viewBox="0 0 24 24">
+    <g fill="none" fillRule="evenodd">
       <g fill={fill || '#62656E'}>
         <g>
           <g>

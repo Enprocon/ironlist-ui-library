@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import c from 'classnames';
-import { size } from './helper';
 
 const SocialShare = ({ className, fill, height, width }) => (
-  <svg className={c('Icon', className)} {...size(height, width)}>
+  <svg className={c('Icon', className)} height={height} width={width} viewBox="0 0 24 24">
     <g fill="none" fillRule="evenodd">
       <g fill={fill || '#62656E'}>
         <g>
