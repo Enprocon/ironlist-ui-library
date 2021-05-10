@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { SortByThick, FilterThick } from '@ironlist/ironlist-icons';
 import { useThemeContext } from '../ThemeProvider';
-import Icons from '../Icons';
 import { FloatingButton, MenuWrapper, IconWrapper, ActiveCircle, Seprator } from './style';
 
 const FloatingMenu = ({ menuList, onMenuClick }) => {
@@ -18,7 +18,11 @@ const FloatingMenu = ({ menuList, onMenuClick }) => {
           <MenuWrapper isFirst={index === 0} isLast={index === menuList.length - 1} onClick={(e) => onClick(menu, e)}>
             <IconWrapper>
               {menu.isActive && <ActiveCircle theme={theme} />}
-              <Icons type={menu.icon} />
+              {index === 0 ? (
+                <SortByThick height={16} width={16} fill="#62656E" />
+              ) : (
+                <FilterThick height={16} width={16} fill="#62656E" />
+              )}
             </IconWrapper>
           </MenuWrapper>
           {index !== menuList.length - 1 ? <Seprator theme={theme} /> : null}
@@ -36,11 +40,9 @@ FloatingMenu.propTypes = {
 FloatingMenu.defaultProps = {
   menuList: [
     {
-      icon: 'navigation',
       isActive: false
     },
     {
-      icon: 'filter',
       isActive: true
     }
   ],

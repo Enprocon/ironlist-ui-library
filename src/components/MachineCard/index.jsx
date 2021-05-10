@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { LocationPinThick, Share, LikeThick } from '@ironlist/ironlist-icons';
 import { useThemeContext } from '../ThemeProvider';
 import Tag from '../Tag';
-import Icons from '../Icons';
 import {
   CardWrapper,
   CardImageWrapper,
@@ -46,8 +46,8 @@ const MachineCard = ({
         <CardImageWrapper />
         <CardImage src={backgroundImage} />
         <div className={iconWrapper}>
-          <Icons type="social-share" fill={theme.white} className="card-icon" onClick={() => onShareClick(itemInfo)} />
-          <Icons type="like" fill={theme.white} className="card-icon" onClick={() => onLikeClick(itemInfo)} />
+          <Share fill={theme.white} className="card-icon" onClick={() => onShareClick(itemInfo)} />
+          <LikeThick fill={theme.white} className="card-icon" onClick={() => onLikeClick(itemInfo)} />
         </div>
         <Tag isOnCard hasRoundBorder backgroundColor={tag.backgroundColor} className={cardTag}>
           {tag.label}
@@ -62,7 +62,7 @@ const MachineCard = ({
       </SaleWrapper>
       <div className={infoWrapper}>
         <Location theme={theme}>
-          <Icons type="location" />
+          <LocationPinThick height={16} width={16} />
           {location}
         </Location>
         <Distance theme={theme}>{distance}</Distance>

@@ -46,10 +46,6 @@ export const ArrowWrapper = styled.div`
     props.left &&
     `
       left: 5px;
-      svg {
-        transform: rotate(180deg);
-        margin-left: -4px;
-      }
     `}
   ${(props) =>
     props.right &&

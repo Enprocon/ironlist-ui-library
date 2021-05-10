@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
+import { ChevronleftThick, ChevronrightThick } from '@ironlist/ironlist-icons';
 import { useKeenSlider } from 'keen-slider/react';
 import { useThemeContext } from '../ThemeProvider';
-import Icons from '../Icons';
 import {
   Dots,
   SliderDot,
@@ -22,7 +22,7 @@ const ArrowLeft = ({ disabled, onClick }) => {
 
   return (
     <ArrowWrapper theme={theme} onClick={onClick} left>
-      <Icons type="rightArrow" />
+      <ChevronleftThick />
     </ArrowWrapper>
   );
 };
@@ -33,7 +33,7 @@ const ArrowRight = ({ disabled, onClick }) => {
   }
   return (
     <ArrowWrapper onClick={onClick} right>
-      <Icons type="rightArrow" />
+      <ChevronrightThick />
     </ArrowWrapper>
   );
 };

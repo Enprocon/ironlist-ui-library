@@ -1,8 +1,8 @@
 import React, { useState, Children, cloneElement, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { ChevronupThick, ChevrondownThick } from '@ironlist/ironlist-icons';
 import { useThemeContext } from '../ThemeProvider';
 import useOutSideClick from './useOutSideClick';
-import Icons from '../Icons';
 import { SelectContainer, OptionList, OptionContainer, SelectedText } from './style';
 
 const Select = ({ defaultValue, children, onChange, isMenuOpen, onSelectBoxClick, placeholder, width }) => {
@@ -27,13 +27,13 @@ const Select = ({ defaultValue, children, onChange, isMenuOpen, onSelectBoxClick
     onSelectBoxClick(e);
   };
   const selectWidth = width || selectRef?.current?.offsetWidth;
-  const arrowType = isOpen ? 'up' : 'down';
+  const ArrowType = isOpen ? ChevronupThick : ChevrondownThick;
 
   return (
     <>
       <SelectContainer ref={selectRef} theme={theme} onClick={(e) => onSelectClick(e)} width={selectWidth}>
         {selectedValue ? <SelectedText theme={theme}>{selectedValue.label}</SelectedText> : placeholder}
-        <Icons type={arrowType} height={16} width={16} fill={theme.white} className="select-icon" />
+        <ArrowType height={16} width={16} fill={theme.white} className="select-icon" />
       </SelectContainer>
       {isOpen && (
         <OptionList theme={theme} style={{ width: selectWidth || selectRef.current.offsetWidth }}>
