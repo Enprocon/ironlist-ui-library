@@ -1,40 +1,42 @@
 import React from 'react';
-
-import { iconList } from '../../components/Icons/helper';
-import Icons from '../../components/Icons';
+import * as IconList from '@ironlist/ironlist-icons';
 
 export default {
-  title: 'Example/Icons',
-  component: Icons
+  title: 'Example/Icons'
 };
 
 const Template = () =>
-  Object.entries(iconList).map(([key, Value], index) => (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        borderLeft: '1px',
-        borderRight: '1px',
-        borderBottom: '1px',
-        borderColor: '#333',
-        borderStyle: 'solid',
-        boxSizing: 'border-box',
-        justifyContent: 'space-around',
-        borderTop: index === 0 ? '1px solid #333' : 0,
-        width: '200px'
-      }}
-    >
-      <div style={{ minWidth: '100px', paddingLeft: '10px', paddingTop: '4px' }}>{key}: </div>
+  Object.keys(IconList).map((key, index) => {
+    const Component = IconList[key];
+    return (
       <div
         style={{
           display: 'flex',
-          alignItems: 'center'
+          alignItems: 'center',
+          borderLeft: '1px',
+          borderRight: '1px',
+          borderBottom: '1px',
+          borderColor: '#333',
+          borderStyle: 'solid',
+          boxSizing: 'border-box',
+          justifyContent: 'space-around',
+          borderTop: index === 0 ? '1px solid #333' : 0,
+          width: '300px',
+          padding: '5px'
         }}
+        key={key} 
       >
-        <Value />
+        <div style={{ minWidth: '200px', paddingLeft: '10px', paddingTop: '4px' }}>{key}: </div>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center'
+          }}
+        >
+          <Component height={20} width={20} fill="#333" />
+        </div>
       </div>
-    </div>
-  ));
+    );
+  });
 
 export const AllIcons = Template.bind({});
