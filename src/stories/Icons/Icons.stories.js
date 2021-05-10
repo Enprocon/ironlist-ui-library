@@ -24,7 +24,7 @@ const Template = () =>
           width: '300px',
           padding: '5px'
         }}
-        key={key} 
+        key={key}
       >
         <div style={{ minWidth: '200px', paddingLeft: '10px', paddingTop: '4px' }}>{key}: </div>
         <div
