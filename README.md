@@ -1,1 +1,1 @@
-This is the first version of my ironlist UI component
+You can checkout the demo at: https://stoic-thompson-bb6337.netlify.app/
