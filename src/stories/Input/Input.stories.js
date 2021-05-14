@@ -13,7 +13,16 @@ export default {
 const Template = (args) => <Input {...args} />;
 
 export const Primary = Template.bind({});
+
 Primary.args = {
   type: 'text',
   size: 'medium'
+};
+
+export const Multiline = Template.bind({});
+
+Multiline.args = {
+  type: 'text',
+  size: 'medium',
+  multiline: true
 };
