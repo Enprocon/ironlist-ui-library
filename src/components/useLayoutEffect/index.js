@@ -7,6 +7,11 @@ import React from 'react';
  *
  * See: https://reactjs.org/docs/hooks-reference.html#uselayouteffect
  */
-const useLayoutEffect = Boolean(globalThis?.document) ? React.useLayoutEffect : () => {};
+
+function canUseDOM() {
+  return !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+}
+
+const useLayoutEffect = canUseDOM() ? React.useLayoutEffect : () => {};
 
 export { useLayoutEffect };
