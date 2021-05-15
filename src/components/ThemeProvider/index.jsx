@@ -1,8 +1,9 @@
-import React, { useLayoutEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { injectGlobal } from '@emotion/css';
 import ThemeProviderContext, { useThemeContext } from './context';
 import { getGlobalCSS, getContextValue } from './utils';
+import { useLayoutEffect } from '../useLayoutEffect';
 import { theme } from '../theme';
 
 function ThemeProvider(props) {

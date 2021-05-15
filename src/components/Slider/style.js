@@ -42,17 +42,8 @@ export const ArrowWrapper = styled.div`
   transform: translateY(-50%);
   cursor: pointer;
   background-color: ${(props) => props.theme.white};
-  ${(props) =>
-    props.left &&
-    `
-      left: 5px;
-    `}
-  ${(props) =>
-    props.right &&
-    `
-      left: auto;
-      right: 5px;
-    `}
+  ${(props) => (props.left ? 'left: 5px;' : '')};
+  ${(props) => (props.right ? 'left: auto; right: 5px' : '')};
 `;
 
 export const Dots = styled.div`
