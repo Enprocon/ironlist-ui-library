@@ -8,9 +8,12 @@ const Input = ({ type, placeholder, size, defaultValue, onChange, multiline, row
   const theme = useThemeContext();
   const Component = multiline ? 'textarea' : 'input';
 
-  const handleOnChange = useCallback((e) => {
-    onChange(e.target.value, e);
-  }, [onChange]);
+  const handleOnChange = useCallback(
+    (e) => {
+      onChange(e.target.value, e);
+    },
+    [onChange]
+  );
 
   return (
     <Component
@@ -42,7 +45,7 @@ Input.propTypes = {
 Input.defaultProps = {
   type: 'text',
   size: 'medium',
-  value: undefined,
+  value: '',
   className: '',
   multiline: false,
   rows: 3,
