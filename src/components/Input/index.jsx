@@ -45,11 +45,11 @@ Input.propTypes = {
 Input.defaultProps = {
   type: 'text',
   size: 'medium',
-  value: '',
+  value: undefined,
   className: '',
   multiline: false,
   rows: 3,
   placeholder: 'Enter your text here...',
-  defaultValue: 'Simple text',
+  defaultValue: undefined,
   onChange: () => {}
 };
