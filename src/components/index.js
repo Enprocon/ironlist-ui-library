@@ -8,3 +8,4 @@ export { default as Slider } from './Slider';
 export { default as Tag } from './Tag';
 export { default as ThemeProvider, useThemeContext } from './ThemeProvider';
 export { default as Typography } from './Typography';
+export { Dialog, DialogContent, DialogOverlay } from './Dialog';

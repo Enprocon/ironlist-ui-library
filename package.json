@@ -14,6 +14,7 @@
   "dependencies": {
     "@emotion/css": "11.1.3",
     "@ironlist/ironlist-icons": "0.1.6",
+    "@reach/dialog": "0.15.0",
     "classnames": "2.3.1",
     "keen-slider": "5.4.0",
     "lodash.set": "^4.3.2",
