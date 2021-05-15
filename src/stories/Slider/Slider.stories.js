@@ -31,25 +31,31 @@ const Template = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  slidesToPreview: 3,
+  keenSliderProps: {
+    slidesToPreview: 3,
+    spacing: 64
+  },
   hasArrow: true,
   hasDots: true,
-  autoScroll: false,
-  spacing: 64
+  autoScroll: false
 };
 
 export const WithoutDotsAndArrow = Template.bind({});
 WithoutDotsAndArrow.args = {
-  slidesToPreview: 1,
+  keenSliderProps: {
+    slidesToPreview: 1,
+    duration: 3000
+  },
   hasArrow: false,
   hasDots: false,
-  autoScroll: true,
-  duration: 3000
+  autoScroll: true
 };
 
 const images = [
-  'https://d3g7ucapfhrqqt.cloudfront.net/images/artyom-korshunov.jpg',
-  'https://d3g7ucapfhrqqt.cloudfront.net/images/dominik-vanyi.jpg'
+  'https://d3g7ucapfhrqqt.cloudfront.net/images/artyom-korshunov-unsplash.jpg',
+  'https://d3g7ucapfhrqqt.cloudfront.net/images/dominik-vanyi-unsplash.jpg',
+  'https://d3g7ucapfhrqqt.cloudfront.net/images/gerold-hinzen-unsplash.jpg',
+  'https://d3g7ucapfhrqqt.cloudfront.net/images/jed-owen-unsplash.jpg'
 ];
 
 const Image = styled.div`
@@ -66,14 +72,22 @@ const Banner = (args) => (
     <div>
       <Image url={images[1]} />
     </div>
+    <div>
+      <Image url={images[2]} />
+    </div>
+    <div>
+      <Image url={images[3]} />
+    </div>
   </Slider>
 );
 
 export const BannerSlider = Banner.bind({});
 BannerSlider.args = {
-  slidesToPreview: 1,
+  keenSliderProps: {
+    slidesToPreview: 1,
+    duration: 3000
+  },
   hasArrow: false,
   hasDots: false,
-  autoScroll: true,
-  duration: 3000
+  autoScroll: true
 };

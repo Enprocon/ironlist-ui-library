@@ -28,28 +28,27 @@ const ArrowLeft = ({ disabled, onClick }) => {
 };
 
 const ArrowRight = ({ disabled, onClick }) => {
+  const theme = useThemeContext();
   if (disabled) {
     return null;
   }
   return (
-    <ArrowWrapper onClick={onClick} right>
+    <ArrowWrapper theme={theme} onClick={onClick} right>
       <ChevronrightThick />
     </ArrowWrapper>
   );
 };
 
-const Slider = ({ children, hasArrow, hasDots, slidesToPreview, duration, autoScroll, spacing, slideProps }) => {
+const Slider = ({ children, hasArrow, hasDots, autoScroll, keenSliderProps, slideProps }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [pause, setPause] = useState(false);
   const timer = useRef();
   const theme = useThemeContext();
+  const { slidesToPreview, duration } = keenSliderProps;
   const [sliderRef, slider] = useKeenSlider({
     initial: 0,
-    spacing,
     slidesPerView: slidesToPreview || 1,
-    centered: true,
-    loop: true,
-    mode: 'snap',
+    ...keenSliderProps,
     breakpoints: {
       '(min-width: 768px)': {
         slidesPerView: slidesToPreview || 2,
@@ -130,10 +129,14 @@ Slider.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element),
   hasArrow: PropTypes.bool,
   hasDots: PropTypes.bool,
-  slidesToPreview: PropTypes.number,
-  duration: PropTypes.number,
   autoScroll: PropTypes.bool,
-  spacing: PropTypes.number,
+  keenSliderProps: PropTypes.shape({
+    centered: PropTypes.bool,
+    loop: PropTypes.bool,
+    mode: PropTypes.string,
+    duration: PropTypes.number,
+    slidesToPreview: PropTypes.number
+  }),
   slideProps: PropTypes.objectOf(PropTypes.any)
 };
 
@@ -141,10 +144,14 @@ Slider.defaultProps = {
   children: [],
   hasArrow: false,
   hasDots: false,
-  slidesToPreview: 1,
   autoScroll: false,
-  duration: 3000,
-  spacing: 0,
+  keenSliderProps: {
+    centered: true,
+    loop: true,
+    mode: 'snap',
+    duration: 3000,
+    slidesToPreview: 1
+  },
   slideProps: {}
 };
 
