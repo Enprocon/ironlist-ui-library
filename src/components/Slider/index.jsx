@@ -99,13 +99,13 @@ const Slider = ({ children, hasArrow, hasDots, autoScroll, keenSliderProps, slid
             <ArrowLeft onClick={(e) => e.stopPropagation() || slider.prev()} disabled={currentSlide === 0} />
             <ArrowRight
               onClick={(e) => e.stopPropagation() || slider.next()}
-              disabled={currentSlide === slider.details().size - 1}
+              disabled={currentSlide === slider.details().size - 1 - slidesToPreview}
             />
           </>
         )}
         {slider && hasDots && (
           <Dots>
-            {[...Array(slider.details().size).keys()].map((idx) => (
+            {[...Array(slider.details().size).keys()].slice(0, slider.details().size - slidesToPreview).map((idx) => (
               <SliderDot
                 key={idx}
                 theme={theme}

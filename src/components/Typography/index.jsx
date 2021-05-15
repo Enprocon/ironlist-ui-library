@@ -36,7 +36,7 @@ Typography.propTypes = {
   className: PropTypes.string,
   opacity: PropTypes.oneOf([100, 70, 50, 30]),
   align: PropTypes.oneOf(['left', 'center', 'right']),
-  transform: PropTypes.oneOf(['capitalize', 'uppercase']),
+  transform: PropTypes.oneOf(['capitalize', 'uppercase', 'initial']),
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]).isRequired,
   variant: PropTypes.oneOf([
     'h1',
@@ -65,8 +65,8 @@ Typography.defaultProps = {
   opacity: 100,
   className: '',
   color: '',
-  align: '',
-  transform: '',
+  align: 'left',
+  transform: 'initial',
   variant: 'p1'
 };
 

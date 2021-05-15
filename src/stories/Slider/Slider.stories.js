@@ -26,6 +26,9 @@ const Template = (args) => (
     <Card {...cardProps} />
     <Card {...cardProps} />
     <Card {...cardProps} />
+    <Card {...cardProps} />
+    <Card {...cardProps} />
+    <Card {...cardProps} />
   </Slider>
 );
 

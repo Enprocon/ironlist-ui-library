@@ -6,8 +6,6 @@ export const ButtonWrapper = styled.button`
   border: none;
   cursor: pointer;
   outline: none;
-  display: flex;
-  align-items: center;
   ${(props) => {
     if (props.size === 'large') {
       return `
