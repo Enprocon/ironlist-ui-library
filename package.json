@@ -28,8 +28,7 @@
         "storybook": "start-storybook -p 6006 -s public",
         "clean": "rimraf dist",
         "version-select": "version-select",
-        "compile": "npm run clean && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__",
-        "publish": "npm run compile && npm publish --access public"
+        "compile": "npm run clean && cross-env NODE_ENV=production babel src/components --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__"
     },
     "browserslist": {
         "production": [
