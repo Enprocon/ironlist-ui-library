@@ -135,7 +135,8 @@ Slider.propTypes = {
     loop: PropTypes.bool,
     mode: PropTypes.string,
     duration: PropTypes.number,
-    slidesToPreview: PropTypes.number
+    slidesToPreview: PropTypes.number,
+    spacing: PropTypes.number
   }),
   slideProps: PropTypes.objectOf(PropTypes.any)
 };
@@ -150,7 +151,8 @@ Slider.defaultProps = {
     loop: true,
     mode: 'snap',
     duration: 3000,
-    slidesToPreview: 1
+    slidesToPreview: 1,
+    spacing: 64
   },
   slideProps: {}
 };

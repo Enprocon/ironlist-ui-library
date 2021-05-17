@@ -15,6 +15,7 @@ Primary.args = {
     "Choose from 6,789,894+ listing in agriculture. See actionable numbers and feedback built to help you act on today's challenges and tomorrow's opportunities and other things",
   info: {
     name: 'Timothy Rice',
-    description: 'New York Times'
+    description: 'New York Times',
+    image: 'https://i.pravatar.cc/54'
   }
 };

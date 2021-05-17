@@ -10,25 +10,27 @@ export default {
 };
 
 const cardProps = {
-  text:
-    "Choose from 6,789,894+ listing in agriculture. See actionable numbers and feedback built to help you act on today's challenges and tomorrow's opportunities and other things",
+  text: 'Choose from 6,789,894+ listing in agriculture. See actionable numbers and feedback',
   info: {
     name: 'Timothy Rice',
     description: 'New York Times'
   }
 };
 
+const cardList = new Array(10).fill('hi').map((_, index) => ({ ...cardProps, id: index }));
+
 const Template = (args) => (
   <Slider {...args}>
-    <Card {...cardProps} />
-    <Card {...cardProps} />
-    <Card {...cardProps} />
-    <Card {...cardProps} />
-    <Card {...cardProps} />
-    <Card {...cardProps} />
-    <Card {...cardProps} />
-    <Card {...cardProps} />
-    <Card {...cardProps} />
+    {cardList.map((data, index) => (
+      <Card
+        {...data}
+        text={
+          index % 2 === 0
+            ? "Choose from 6,789,894+ listing in agriculture. See actionable numbers and feedback built to help you act on today's challenges."
+            : data.text
+        }
+      />
+    ))}
   </Slider>
 );
 

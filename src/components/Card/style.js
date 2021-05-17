@@ -16,11 +16,20 @@ export const CardText = styled.p`
   border-bottom: 1px solid #d8dfe0;
   font-size: 16px;
   line-height: 1.25;
+  min-height: 120px;
 `;
 
 export const CardContent = styled.div`
   display: flex;
   align-items: center;
+`;
+
+export const Image = styled.img`
+  height: 54px;
+  width: 54px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 1px 9px 1px rgba(55, 70, 95, 0.17);
 `;
 
 export const CardInfo = styled.div`
@@ -31,12 +40,14 @@ export const CardNameImage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 56px;
-  width: 56px;
+  height: 54px;
+  width: 54px;
   border-radius: 50%;
   background-color: red;
   color: white;
   font-size: 24px;
+  border: 2px solid white;
+  box-shadow: 0 1px 9px 1px rgba(55, 70, 95, 0.17);
 `;
 
 export const CardName = styled.p`
