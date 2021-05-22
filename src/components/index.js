@@ -9,3 +9,6 @@ export { default as Tag } from './Tag';
 export { default as ThemeProvider, useThemeContext } from './ThemeProvider';
 export { default as Typography } from './Typography';
 export { Dialog, DialogContent, DialogOverlay } from './Dialog';
+export { default as Breadcrumbs } from './Breadcrumbs';
+export { default as Link } from './Link';
+export { default as Checkbox } from './Checkbox';
