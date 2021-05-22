@@ -10,8 +10,8 @@ export default {
 
 const Template = (args) => (
   <Breadcrumbs {...args}>
-    <Link id="one">One</Link>
-    <Link id="two">Two</Link>
+    <Link>One</Link>
+    <Link isActive>Two</Link>
   </Breadcrumbs>
 );
 

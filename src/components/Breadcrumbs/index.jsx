@@ -7,12 +7,14 @@ const Breadcrumbs = ({ children }) => {
   const theme = useThemeContext();
   return (
     <div className={breadcrumbs}>
-      {children.map((child, index) => (
-        <Fragment key={child.props.children}>
-          {child}
-          {index !== children.length - 1 && <div className={seprator(theme)}>/</div>}
-        </Fragment>
-      ))}
+      {children.length
+        ? children.map((child, index) => (
+            <Fragment key={child.props.children}>
+              {child}
+              {index !== children.length - 1 && <div className={seprator(theme)}>/</div>}
+            </Fragment>
+          ))
+        : children}
     </div>
   );
 };
