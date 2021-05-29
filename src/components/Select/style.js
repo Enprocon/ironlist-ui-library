@@ -1,12 +1,13 @@
 import styled from 'styled-components';
+import { css } from '@emotion/css';
 
-export const SelectContainer = styled.div`
+export const selectContainer = (theme, width) => css`
   height: 32px;
   padding: 8px;
   padding-left: 12px;
   border-radius: 4px;
-  border: 2px solid ${(props) => props.theme.white};
-  width: ${(props) => (props.width ? props.width : 'fit-content')};
+  border: 2px solid ${theme.background.bgGrey1};
+  width: ${width || 'fit-content'};
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
@@ -16,6 +17,7 @@ export const SelectContainer = styled.div`
   font-family: Geomanist-Medium;
   .select-icon {
     margin-left: 16px;
+    opacity: 0.7;
   }
 `;
 
@@ -26,7 +28,8 @@ export const OptionList = styled.div`
 `;
 
 export const SelectedText = styled.div`
-  color: ${(props) => props.theme.white};
+  color: ${(props) => props.theme.background.darkbgGrey1};
+  opacity: 0.7;
 `;
 
 export const OptionContainer = styled.div`

@@ -1,11 +1,22 @@
 import React, { useState, Children, cloneElement, useRef } from 'react';
 import PropTypes from 'prop-types';
+import c from 'classnames';
 import { ChevronupThick, ChevrondownThick } from '@ironlist/ironlist-icons';
 import { useThemeContext } from '../ThemeProvider';
 import useOutSideClick from './useOutSideClick';
-import { SelectContainer, OptionList, OptionContainer, SelectedText } from './style';
+import { selectContainer, OptionList, OptionContainer, SelectedText } from './style';
 
-const Select = ({ defaultValue, children, onChange, isMenuOpen, onSelectBoxClick, placeholder, width }) => {
+const Select = ({
+  className,
+  defaultValue,
+  children,
+  onChange,
+  isMenuOpen,
+  onSelectBoxClick,
+  placeholder,
+  width,
+  prefix
+}) => {
   const theme = useThemeContext();
   const [selectedValue, setSelectedValue] = useState(defaultValue);
   const selectRef = useRef(null);
@@ -31,17 +42,38 @@ const Select = ({ defaultValue, children, onChange, isMenuOpen, onSelectBoxClick
 
   return (
     <>
-      <SelectContainer ref={selectRef} theme={theme} onClick={(e) => onSelectClick(e)} width={selectWidth}>
-        {selectedValue ? <SelectedText theme={theme}>{selectedValue.label}</SelectedText> : placeholder}
-        <ArrowType height={16} width={16} fill={theme.white} className="select-icon" />
-      </SelectContainer>
+      <div
+        ref={selectRef}
+        onClick={(e) => onSelectClick(e)}
+        className={c(selectContainer(theme, selectWidth), `${prefix}select-container select-container`, className)}
+        role="presentation"
+      >
+        {selectedValue ? (
+          <SelectedText theme={theme} className={`${prefix}select-text select-text`}>
+            {selectedValue.label}
+          </SelectedText>
+        ) : (
+          placeholder
+        )}
+        <ArrowType
+          height={16}
+          width={16}
+          fill={theme.background.darkGrey1}
+          className={`${prefix}select-icon select-icon`}
+        />
+      </div>
       {isOpen && (
-        <OptionList theme={theme} style={{ width: selectWidth || selectRef.current.offsetWidth }}>
+        <OptionList
+          theme={theme}
+          style={{ width: selectWidth || selectRef.current.offsetWidth }}
+          className={`${prefix}select-option-list select-option-list`}
+        >
           {Children.map(children, (child, index) =>
             cloneElement(child, {
               onClick: onOptionClick,
               isFirst: index === 0,
-              isLast: index === children.length - 1
+              isLast: index === children.length - 1,
+              prefix
             })
           )}
         </OptionList>
@@ -50,7 +82,7 @@ const Select = ({ defaultValue, children, onChange, isMenuOpen, onSelectBoxClick
   );
 };
 
-const Option = ({ value, children, onClick, isFirst, isLast }) => {
+const Option = ({ value, children, onClick, isFirst, isLast, prefix }) => {
   const theme = useThemeContext();
 
   return (
@@ -59,6 +91,7 @@ const Option = ({ value, children, onClick, isFirst, isLast }) => {
       isFirst={isFirst}
       isLast={isLast}
       onClick={() => onClick({ label: children, value })}
+      className={`${prefix}select-option select-option`}
     >
       {children}
     </OptionContainer>
@@ -78,20 +111,24 @@ Select.propTypes = {
     PropTypes.arrayOf(PropTypes.oneOf([PropTypes.node, PropTypes.element])),
     PropTypes.oneOfType([PropTypes.node, PropTypes.element])
   ]),
+  className: PropTypes.string,
   onChange: PropTypes.func,
   onSelectBoxClick: PropTypes.func,
   isMenuOpen: PropTypes.bool,
-  width: PropTypes.string
+  width: PropTypes.string,
+  prefix: PropTypes.string
 };
 
 Select.defaultProps = {
   defaultValue: { label: '', value: '' },
   placeholder: 'Select from options...',
   children: [],
+  className: '',
   onChange: () => {},
   onSelectBoxClick: () => {},
   isMenuOpen: false,
-  width: ''
+  width: '',
+  prefix: ''
 };
 
 Option.propTypes = {
@@ -99,7 +136,8 @@ Option.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   onClick: PropTypes.func,
   isFirst: PropTypes.bool,
-  isLast: PropTypes.bool
+  isLast: PropTypes.bool,
+  prefix: PropTypes.string
 };
 
 Option.defaultProps = {
@@ -107,5 +145,6 @@ Option.defaultProps = {
   children: '',
   onClick: () => {},
   isFirst: false,
-  isLast: false
+  isLast: false,
+  prefix: ''
 };
