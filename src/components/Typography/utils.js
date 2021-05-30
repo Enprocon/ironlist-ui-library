@@ -18,6 +18,9 @@ export const getDefaultComponent = (variant) => {
     case 'h6': {
       return 'h6';
     }
+    case 'h7': {
+      return 'h7';
+    }
     case 'l1':
     case 'l2':
     case 'l3':

@@ -6,7 +6,7 @@ export const TagContainer = styled.div`
   display: inline-block;
   box-sizing: border-box;
   font-size: 10px;
-  line-height: 20px;
+  line-height: 22px;
   text-transform: uppercase;
   color: ${(props) => props.theme.white};
   background-color: ${(props) => props.backgroundColor};

@@ -46,6 +46,12 @@ export const variantStyles = css`
   &.h6 {
     font-family: Geomanist-Regular;
   }
+  &.h7 {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.09;
+    font-family: Geomanist-Medium;
+  }
 
   &.p1 {
     font-size: 20px;

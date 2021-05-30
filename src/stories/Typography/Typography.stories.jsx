@@ -23,6 +23,7 @@ const variants = [
   { variant: 'h4', children: 'Headline 4', opacity: 50 },
   { variant: 'h5', children: 'Headline 5', color: '#de1609' },
   { variant: 'h6', children: 'Headline 6', opacity: 30 },
+  { variant: 'h7', children: 'Headline 7' },
   { variant: 'p1', children: 'Paragraph 1', color: '#f88932' },
   { variant: 'p2', children: 'Paragraph 2' },
   { variant: 'p3', children: 'Paragraph 3', color: '#de1609' },
