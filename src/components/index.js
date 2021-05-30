@@ -12,3 +12,4 @@ export { Dialog, DialogContent, DialogOverlay } from './Dialog';
 export { default as Breadcrumbs } from './Breadcrumbs';
 export { default as Link } from './Link';
 export { default as Checkbox } from './Checkbox';
+export { Tabs, Tab } from './Tabs';
