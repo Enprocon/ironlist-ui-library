@@ -3,10 +3,17 @@ import c from 'classnames';
 import PropTypes from 'prop-types';
 import { useThemeContext } from '../ThemeProvider';
 import { getDefaultComponent } from './utils';
-import { textAlignStyles, textColorStyles, textTransformStyles, variantStyles, opacityStyles } from './styles';
+import {
+  textAlignStyles,
+  textColorStyles,
+  textTransformStyles,
+  variantStyles,
+  opacityStyles,
+  weightStyles
+} from './styles';
 
 function Typography(props) {
-  const { children, variant, className, opacity, transform, align, color, ...rest } = props;
+  const { children, variant, className, opacity, transform, align, color, weight, ...rest } = props;
   const As = getDefaultComponent(variant);
   const theme = useThemeContext();
 
@@ -22,7 +29,11 @@ function Typography(props) {
         `transform-${transform}`,
         textTransformStyles,
         `opacity-${opacity}`,
-        opacityStyles
+        opacityStyles,
+        weightStyles,
+        {
+          [`weight-${weight}`]: weight !== ''
+        }
       )}
       {...rest}
     >
@@ -59,7 +70,8 @@ Typography.propTypes = {
     'l2',
     'l3',
     'l4'
-  ])
+  ]),
+  weight: PropTypes.oneOf(['medium', 'regular', ''])
 };
 
 Typography.defaultProps = {
@@ -68,7 +80,8 @@ Typography.defaultProps = {
   color: '',
   align: 'left',
   transform: 'initial',
-  variant: 'p1'
+  variant: 'p1',
+  weight: ''
 };
 
 export default Typography;

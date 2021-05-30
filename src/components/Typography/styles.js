@@ -189,6 +189,16 @@ export const opacityStyles = css`
   }
 `;
 
+export const weightStyles = css`
+  &.weight-regular {
+    font-family: Geomanist-Regular;
+  }
+
+  &.weight-medium: {
+    font-family: Geomanist-Medium;
+  }
+`;
+
 export const textColorStyles = (color) => css`
   color: ${color};
 `;
