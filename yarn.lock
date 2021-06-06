@@ -1551,10 +1551,10 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@ironlist/ironlist-icons@0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@ironlist/ironlist-icons/-/ironlist-icons-0.1.7.tgz#63a68f9786e2f58195e3077606cfecedeaa60c46"
-  integrity sha512-6MGb7UOP2qDfvnxgf+dxvpGccpfshmGxheHiz+cwahUv5ULe5Va6CMT0gskReEQWBjMU7RGb1lRShfPhw/xqtg==
+"@ironlist/ironlist-icons@0.1.9":
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/@ironlist/ironlist-icons/-/ironlist-icons-0.1.9.tgz#b3b75a190938b436bcb1f78a23c92b999e58fcd6"
+  integrity sha512-yov2fre8nGDhqRfuvQfKGRNW242I/WdP/fIyc2Z9/x/PCkqhb6DAvJET03T8JqOQfDVZUj3whaNyFyuJi9VE8w==
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"

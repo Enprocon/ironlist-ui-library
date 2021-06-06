@@ -1,22 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import c from 'classnames';
 import { useThemeContext } from '../ThemeProvider';
-import { TagContainer } from './style';
+import { tagContainer } from './style';
 
 const Tag = ({ children, backgroundColor, hasRoundBorder, isOnCard, className }) => {
   const theme = useThemeContext();
-
-  return (
-    <TagContainer
-      theme={theme}
-      backgroundColor={backgroundColor}
-      hasRoundBorder={hasRoundBorder}
-      isOnCard={isOnCard}
-      className={className}
-    >
-      {children}
-    </TagContainer>
-  );
+  return <div className={c(tagContainer(theme, backgroundColor, hasRoundBorder, isOnCard), className)}>{children}</div>;
 };
 
 export default Tag;
