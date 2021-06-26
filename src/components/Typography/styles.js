@@ -205,6 +205,10 @@ export const opacityStyles = css`
     opacity: 0.7;
   }
 
+  &.opacity-60 {
+    opacity: 0.6;
+  }
+
   &.opacity-50 {
     opacity: 0.5;
   }

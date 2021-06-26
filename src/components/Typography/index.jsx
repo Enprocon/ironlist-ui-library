@@ -47,7 +47,7 @@ Typography.propTypes = {
   color: PropTypes.string,
   className: PropTypes.string,
   device: PropTypes.string,
-  opacity: PropTypes.oneOf([100, 70, 50, 30]),
+  opacity: PropTypes.oneOf([100, 70, 60, 50, 30]),
   align: PropTypes.oneOf(['left', 'center', 'right']),
   transform: PropTypes.oneOf(['capitalize', 'uppercase', 'initial']),
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]).isRequired,
