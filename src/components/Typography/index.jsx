@@ -16,7 +16,6 @@ function Typography(props) {
   const { children, variant, className, opacity, transform, align, color, weight, device, ...rest } = props;
   const As = getDefaultComponent(variant);
   const theme = useThemeContext();
-  console.log('device:', props);
 
   return (
     <As
