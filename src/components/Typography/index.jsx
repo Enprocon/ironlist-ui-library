@@ -13,9 +13,10 @@ import {
 } from './styles';
 
 function Typography(props) {
-  const { children, variant, className, opacity, transform, align, color, weight, ...rest } = props;
+  const { children, variant, className, opacity, transform, align, color, weight, device, ...rest } = props;
   const As = getDefaultComponent(variant);
   const theme = useThemeContext();
+  console.log('device:', props);
 
   return (
     <As
@@ -23,7 +24,7 @@ function Typography(props) {
         className,
         textColorStyles(color || theme.background.darkGrey1),
         variant,
-        variantStyles,
+        variantStyles(device),
         `align-${align}`,
         textAlignStyles,
         `transform-${transform}`,
@@ -45,6 +46,7 @@ function Typography(props) {
 Typography.propTypes = {
   color: PropTypes.string,
   className: PropTypes.string,
+  device: PropTypes.string,
   opacity: PropTypes.oneOf([100, 70, 50, 30]),
   align: PropTypes.oneOf(['left', 'center', 'right']),
   transform: PropTypes.oneOf(['capitalize', 'uppercase', 'initial']),
@@ -77,6 +79,7 @@ Typography.propTypes = {
 Typography.defaultProps = {
   opacity: 100,
   className: '',
+  device: '',
   color: '',
   align: 'left',
   transform: 'initial',

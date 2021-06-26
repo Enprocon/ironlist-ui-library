@@ -29,8 +29,10 @@ const variants = [
   { variant: 'p3', children: 'Paragraph 3', color: '#de1609' },
   { variant: 'p4', children: 'Paragraph 4', opacity: 70 },
   { variant: 'p5', children: 'Paragraph 5' },
+  { variant: 'p5', children: 'Paragraph 5 Mobile', device: 'mobile' },
   { variant: 'p6', children: 'Paragraph 6', color: '#f88932' },
   { variant: 'p7', children: 'Paragraph 7' },
+  { variant: 'p7', children: 'Paragraph 7', device: 'mobile' },
   { variant: 'p8', children: 'Paragraph 8', opacity: 30 },
   { variant: 'p9', children: 'Paragraph 9', color: '#f88932' },
   { variant: 'l1', children: 'Label 1' },
@@ -41,8 +43,8 @@ const variants = [
 
 export const Default = () => (
   <div className={containerStyles}>
-    {variants.map(({ variant, children, color, opacity }) => (
-      <Typography variant={variant} color={color} opacity={opacity}>
+    {variants.map(({ variant, children, color, opacity, device }) => (
+      <Typography variant={variant} color={color} opacity={opacity} device={device}>
         {children}
       </Typography>
     ))}

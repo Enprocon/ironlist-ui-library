@@ -1,13 +1,14 @@
 import { css } from '@emotion/css';
 
-export const variantStyles = css`
+export const variantStyles = (device) => css`
   margin: 0;
 
   &.h1 {
     font-size: 48px;
     line-height: 48px;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.5px;
     font-family: Geomanist-Medium;
+    font-weight: 500;
   }
 
   &.h2 {
@@ -15,6 +16,7 @@ export const variantStyles = css`
     line-height: 36px;
     letter-spacing: 0.3px;
     font-family: Geomanist-Medium;
+    font-weight: 500;
   }
 
   &.h3,
@@ -26,6 +28,7 @@ export const variantStyles = css`
 
   &.h3 {
     font-family: Geomanist-Medium;
+    font-weight: 500;
   }
 
   &.h4 {
@@ -41,6 +44,7 @@ export const variantStyles = css`
 
   &.h5 {
     font-family: Geomanist-Medium;
+    font-weight: 500;
   }
 
   &.h6 {
@@ -67,13 +71,14 @@ export const variantStyles = css`
   }
 
   &.p2 {
-    letter-spacing: 0.11px;
+    letter-spacing: 0.1px;
     font-family: Geomanist-Regular;
   }
 
   &.p3 {
     letter-spacing: 0.1px;
     font-family: Geomanist-Medium;
+    font-weight: 500;
   }
 
   &.p4,
@@ -83,6 +88,21 @@ export const variantStyles = css`
     line-height: 20px;
     letter-spacing: 0;
   }
+
+  ${device === 'mobile' &&
+  `
+    &.p5 {
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.1px;
+    }
+
+    &.p7 {
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0.2px;
+    }
+  `}
 
   &.p4 {
     font-family: Geomanist-Light;
@@ -94,6 +114,7 @@ export const variantStyles = css`
 
   &.p6 {
     font-family: Geomanist-Medium;
+    letter-spacing: 0.1px;
   }
 
   &.p7,
@@ -106,15 +127,18 @@ export const variantStyles = css`
 
   &.p7 {
     font-family: Geomanist-Regular;
+    letter-spacing: 0.2px;
   }
 
   &.p8 {
     font-family: Geomanist-Medium;
+    letter-spacing: 0.2px;
   }
 
   &.p9 {
     font-family: Geomanist-Regular;
     font-style: italic;
+    letter-spacing: 0.2px;
   }
 
   &.l1 {
@@ -122,6 +146,7 @@ export const variantStyles = css`
     line-height: 20px;
     letter-spacing: 0.8px;
     font-family: Geomanist-Medium;
+    font-weight: 500;
   }
 
   &.l2,
@@ -142,7 +167,7 @@ export const variantStyles = css`
   &.l4 {
     font-size: 12px;
     line-height: 16px;
-    letter-spacing: 1.2px;
+    letter-spacing: 1px;
     font-family: Geomanist-Regular;
   }
 `;
