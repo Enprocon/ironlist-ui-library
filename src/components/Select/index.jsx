@@ -45,11 +45,15 @@ const Select = ({
       <div
         ref={selectRef}
         onClick={(e) => onSelectClick(e)}
-        className={c(selectContainer(theme, selectWidth), `${prefix}select-container select-container`, className)}
+        className={c(
+          selectContainer(theme, selectWidth),
+          `${prefix ? `${prefix}select-container` : ''} select-container`,
+          className
+        )}
         role="presentation"
       >
         {selectedValue ? (
-          <SelectedText theme={theme} className={`${prefix}select-text select-text`}>
+          <SelectedText theme={theme} className={`${prefix ? `${prefix}select-text` : ''} select-text`}>
             {selectedValue.label}
           </SelectedText>
         ) : (
@@ -59,14 +63,14 @@ const Select = ({
           height={16}
           width={16}
           fill={theme.background.darkGrey1}
-          className={`${prefix}select-icon select-icon`}
+          className={`${prefix ? `${prefix}select-icon` : ''} select-icon`}
         />
       </div>
       {isOpen && (
         <OptionList
           theme={theme}
           style={{ width: selectWidth || selectRef.current.offsetWidth }}
-          className={`${prefix}select-option-list select-option-list`}
+          className={`${prefix ? `${prefix}select-option-list` : ''} select-option-list`}
         >
           {Children.map(children, (child, index) =>
             cloneElement(child, {
@@ -91,7 +95,7 @@ const Option = ({ value, children, onClick, isFirst, isLast, prefix }) => {
       isFirst={isFirst}
       isLast={isLast}
       onClick={() => onClick({ label: children, value })}
-      className={`${prefix}select-option select-option`}
+      className={`${prefix ? `${prefix}select-option` : ''} select-option`}
     >
       {children}
     </OptionContainer>

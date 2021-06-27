@@ -1,12 +1,25 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import c from 'classnames';
 import PropTypes from 'prop-types';
 import { useThemeContext } from '../ThemeProvider';
-import { inputStyles } from './style';
+import { inputStyles, inputWrapper } from './style';
 
-const Input = ({ type, placeholder, size, defaultValue, onChange, multiline, rows, className, value }) => {
+const Input = ({
+  type,
+  placeholder,
+  size,
+  defaultValue,
+  onChange,
+  multiline,
+  rows,
+  className,
+  value,
+  disabled,
+  label
+}) => {
   const theme = useThemeContext();
   const Component = multiline ? 'textarea' : 'input';
+  const [isInputFocus, setIsInputFocus] = useState(false);
 
   const handleOnChange = useCallback(
     (e) => {
@@ -16,21 +29,34 @@ const Input = ({ type, placeholder, size, defaultValue, onChange, multiline, row
   );
 
   return (
-    <Component
-      type={type}
-      rows={rows}
-      value={value}
-      defaultValue={defaultValue}
-      placeholder={placeholder}
-      onChange={handleOnChange}
-      className={c(inputStyles(theme, size), className)}
-    />
+    <div className={inputWrapper(theme, isInputFocus, disabled)}>
+      {label && (
+        <label className="input-label" htmlFor={label}>
+          {label}
+        </label>
+      )}
+      <Component
+        type={type}
+        rows={rows}
+        value={value}
+        defaultValue={defaultValue}
+        placeholder={placeholder}
+        onChange={handleOnChange}
+        className={c(inputStyles(theme, size), className)}
+        onFocus={() => setIsInputFocus(true)}
+        onBlur={() => setIsInputFocus(false)}
+        disabled={disabled}
+        id={label}
+      />
+      <div className="focus-indicator" />
+    </div>
   );
 };
 
 export default Input;
 
 Input.propTypes = {
+  label: PropTypes.string,
   type: PropTypes.string,
   size: PropTypes.string,
   className: PropTypes.string,
@@ -39,10 +65,12 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   value: PropTypes.string,
   defaultValue: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  disabled: PropTypes.bool
 };
 
 Input.defaultProps = {
+  label: '',
   type: 'text',
   size: 'medium',
   value: undefined,
@@ -51,5 +79,6 @@ Input.defaultProps = {
   rows: 3,
   placeholder: 'Enter your text here...',
   defaultValue: undefined,
-  onChange: () => {}
+  onChange: () => {},
+  disabled: false
 };

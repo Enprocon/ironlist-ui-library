@@ -18,7 +18,7 @@ export const Primary = (...args) => {
     setVal(value);
   };
 
-  return <Input {...args} value={val} onChange={onChange} />;
+  return <Input {...args} value={val} onChange={onChange} label="Email" />;
 };
 
 Primary.args = {

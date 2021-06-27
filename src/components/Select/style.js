@@ -3,7 +3,7 @@ import { css } from '@emotion/css';
 
 export const selectContainer = (theme, width) => css`
   height: 32px;
-  padding: 8px;
+  padding-right: 8px;
   padding-left: 12px;
   border-radius: 4px;
   border: 2px solid ${theme.background.bgGrey1};
@@ -15,6 +15,9 @@ export const selectContainer = (theme, width) => css`
   justify-content: space-between;
   margin-bottom: 4px;
   font-family: Geomanist-Medium;
+  font-size: 14px;
+  line-height: 31px;
+  letter-spacing: 0.6px;
   .select-icon {
     margin-left: 16px;
     opacity: 0.7;

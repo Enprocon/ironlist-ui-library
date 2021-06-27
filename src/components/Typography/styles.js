@@ -6,9 +6,17 @@ export const variantStyles = (device) => css`
   &.h1 {
     font-size: 48px;
     line-height: 48px;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
     font-family: Geomanist-Medium;
     font-weight: 500;
+
+    ${device === 'mobile'
+      ? `
+      font-size: 40px;
+      line-height: 1;
+      letter-spacing: 0.5px;
+    `
+      : ''}
   }
 
   &.h2 {
@@ -17,6 +25,13 @@ export const variantStyles = (device) => css`
     letter-spacing: 0.3px;
     font-family: Geomanist-Medium;
     font-weight: 500;
+    ${device === 'mobile'
+      ? `
+        font-size: 32px;
+        line-height: 1.13;
+        letter-spacing: 0.3px;
+      `
+      : ''}
   }
 
   &.h3,
@@ -24,6 +39,13 @@ export const variantStyles = (device) => css`
     font-size: 32px;
     line-height: 36px;
     letter-spacing: 0.3px;
+    ${device === 'mobile'
+      ? `
+        font-size: 24px;
+        line-height: 26px;
+        letter-spacing: 0.3px;
+      `
+      : ''}
   }
 
   &.h3 {
@@ -45,10 +67,26 @@ export const variantStyles = (device) => css`
   &.h5 {
     font-family: Geomanist-Medium;
     font-weight: 500;
+
+    ${device === 'mobile'
+      ? `
+        opacity: 0.7;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: 0.2px;
+    `
+      : ''}
   }
 
   &.h6 {
     font-family: Geomanist-Regular;
+    ${device === 'mobile'
+      ? `
+      font-size: 20px;
+      line-height: 24px;
+      letter-spacing: 0.2px;
+    `
+      : ''}
   }
   &.h7 {
     font-size: 22px;
@@ -62,12 +100,23 @@ export const variantStyles = (device) => css`
     line-height: 24px;
     letter-spacing: 0.1px;
     font-family: Geomanist-Regular;
+    ${device === 'mobile'
+      ? `
+      font-size: 18px;
+    `
+      : ''}
   }
 
   &.p2,
   &.p3 {
     font-size: 18px;
     line-height: 24px;
+    ${device === 'mobile'
+      ? `
+      font-size: 16px;
+      line-height: 20px;
+    `
+      : ''}
   }
 
   &.p2 {
@@ -87,6 +136,13 @@ export const variantStyles = (device) => css`
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0;
+    ${device === 'mobile'
+      ? `
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.1px;
+    `
+      : ''}
   }
 
   ${device === 'mobile' &&
@@ -105,7 +161,8 @@ export const variantStyles = (device) => css`
   `}
 
   &.p4 {
-    font-family: Geomanist-Light;
+    font-family: Geomanist-Regular;
+    font-weight: 300;
   }
 
   &.p5 {
@@ -115,6 +172,7 @@ export const variantStyles = (device) => css`
   &.p6 {
     font-family: Geomanist-Medium;
     letter-spacing: 0.1px;
+    font-weight: 500;
   }
 
   &.p7,
@@ -123,11 +181,18 @@ export const variantStyles = (device) => css`
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0;
+    ${device === 'mobile'
+      ? `
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0.2px;
+    `
+      : ''}
   }
 
   &.p7 {
     font-family: Geomanist-Regular;
-    letter-spacing: 0.2px;
+    letter-spacing: 0;
   }
 
   &.p8 {
@@ -142,11 +207,19 @@ export const variantStyles = (device) => css`
   }
 
   &.l1 {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.8px;
     font-family: Geomanist-Medium;
     font-weight: 500;
+
+    ${device === 'mobile'
+      ? `
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: 0.8px;
+    `
+      : ''}
   }
 
   &.l2,
@@ -154,6 +227,12 @@ export const variantStyles = (device) => css`
     font-size: 14px;
     line-height: 16px;
     font-family: Geomanist-Regular;
+    ${device === 'mobile'
+      ? `
+      font-size: 12px;
+      line-height: 16px;
+    `
+      : ''}
   }
 
   &.l2 {
@@ -167,8 +246,15 @@ export const variantStyles = (device) => css`
   &.l4 {
     font-size: 12px;
     line-height: 16px;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     font-family: Geomanist-Regular;
+    ${device === 'mobile'
+      ? `
+      font-size: 10px;
+      line-height: 16px;
+      letter-spacing: 1px;
+    `
+      : ''}
   }
 `;
 
