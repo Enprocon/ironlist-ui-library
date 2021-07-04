@@ -11,11 +11,7 @@ export default {
   }
 };
 
-const Template = ({ children, ...rest }) => (
-  <div style={{ padding: '20px', background: 'black', width: '120px' }}>
-    <Tag {...rest}>{children}</Tag>
-  </div>
-);
+const Template = ({ children, ...rest }) => <Tag {...rest}>{children}</Tag>;
 
 export const Primary = Template.bind({});
 Primary.args = {

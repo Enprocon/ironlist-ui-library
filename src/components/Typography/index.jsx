@@ -30,10 +30,10 @@ function Typography(props) {
         textTransformStyles,
         `opacity-${opacity}`,
         opacityStyles,
-        weightStyles,
         {
           [`weight-${weight}`]: weight !== ''
-        }
+        },
+        weightStyles
       )}
       {...rest}
     >

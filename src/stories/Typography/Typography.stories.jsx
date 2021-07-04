@@ -30,9 +30,9 @@ const variants = [
   { variant: 'h6', children: 'Headline 6', opacity: 30 },
   { variant: 'h6', children: 'Headline 6 Mobile', opacity: 30, device: 'mobile' },
   { variant: 'h7', children: 'Headline 7' },
-  { variant: 'h7', children: 'Headline 7 Mobile', device: 'mobile' },
+  { variant: 'h7', children: 'Headline 7 Mobile', device: 'mobile', weight: 400 },
   { variant: 'p1', children: 'Paragraph 1', color: '#f88932' },
-  { variant: 'p1', children: 'Paragraph 1 Mobile', color: '#f88932', device: 'mobile' },
+  { variant: 'p1', children: 'Paragraph 1 Mobile', color: '#f88932', device: 'mobile', weight: 500 },
   { variant: 'p2', children: 'Paragraph 2' },
   { variant: 'p2', children: 'Paragraph 2 Mobile', device: 'mobile' },
   { variant: 'p3', children: 'Paragraph 3', color: '#de1609' },
@@ -61,8 +61,8 @@ const variants = [
 
 export const Default = () => (
   <div className={containerStyles}>
-    {variants.map(({ variant, children, color, opacity, device }) => (
-      <Typography variant={variant} color={color} opacity={opacity} device={device}>
+    {variants.map(({ variant, children, color, opacity, device, weight }) => (
+      <Typography variant={variant} color={color} opacity={opacity} device={device} weight={weight}>
         {children}
       </Typography>
     ))}

@@ -305,12 +305,14 @@ export const opacityStyles = css`
 `;
 
 export const weightStyles = css`
-  &.weight-regular {
-    font-family: Geomanist-Regular;
+  &.weight-400 {
+    font-family: Geomanist-Regular !important;
+    font-weight: 400 !important;
   }
 
-  &.weight-medium: {
-    font-family: Geomanist-Medium;
+  &.weight-500 {
+    font-family: Geomanist-Medium !important;
+    font-weight: 500 !important;
   }
 `;
 
