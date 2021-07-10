@@ -4,7 +4,7 @@ import c from 'classnames';
 import { ChevronupThick, ChevrondownThick } from '@ironlist/ironlist-icons';
 import { useThemeContext } from '../ThemeProvider';
 import useOutSideClick from './useOutSideClick';
-import { selectContainer, OptionList, OptionContainer, SelectedText } from './style';
+import { selectWrapper, selectContainer, OptionList, OptionContainer, SelectedText } from './style';
 
 const Select = ({
   className,
@@ -41,7 +41,7 @@ const Select = ({
   const ArrowType = isOpen ? ChevronupThick : ChevrondownThick;
 
   return (
-    <>
+    <div className={selectWrapper}>
       <div
         ref={selectRef}
         onClick={(e) => onSelectClick(e)}
@@ -82,7 +82,7 @@ const Select = ({
           )}
         </OptionList>
       )}
-    </>
+    </div>
   );
 };
 
@@ -136,8 +136,8 @@ Select.defaultProps = {
 };
 
 Option.propTypes = {
-  value: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  value: PropTypes.oneOfType([PropTypes.any]),
+  children: PropTypes.oneOfType([PropTypes.any]),
   onClick: PropTypes.func,
   isFirst: PropTypes.bool,
   isLast: PropTypes.bool,

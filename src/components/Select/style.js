@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { css } from '@emotion/css';
 
+export const selectWrapper = css`
+  position: relative;
+`;
+
 export const selectContainer = (theme, width) => css`
   height: 32px;
   padding-right: 8px;
@@ -27,6 +31,8 @@ export const selectContainer = (theme, width) => css`
 export const OptionList = styled.div`
   box-shadow: 0 6px 10px 0 rgba(55, 70, 95, 0.12);
   position: absolute;
+  top: 36px;
+  left: 0;
   z-index: 999;
 `;
 

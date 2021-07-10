@@ -63,8 +63,8 @@ Input.propTypes = {
   multiline: PropTypes.bool,
   rows: PropTypes.number,
   placeholder: PropTypes.string,
-  value: PropTypes.string,
-  defaultValue: PropTypes.string,
+  value: PropTypes.oneOf([PropTypes.string, PropTypes.node, PropTypes.number, PropTypes.any]),
+  defaultValue: PropTypes.oneOf([PropTypes.string, PropTypes.node, PropTypes.number, PropTypes.any]),
   onChange: PropTypes.func,
   disabled: PropTypes.bool
 };

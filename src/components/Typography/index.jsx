@@ -72,7 +72,7 @@ Typography.propTypes = {
     'l3',
     'l4'
   ]),
-  weight: PropTypes.oneOf(['medium', 'regular', ''])
+  weight: PropTypes.oneOf(['500', '400', ''])
 };
 
 Typography.defaultProps = {
