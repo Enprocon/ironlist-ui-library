@@ -86,7 +86,7 @@ const Select = ({
   );
 };
 
-const Option = ({ value, children, onClick, isFirst, isLast, prefix }) => {
+const Option = ({ value, children, onClick, isFirst, isLast, prefix, key }) => {
   const theme = useThemeContext();
 
   return (
@@ -95,6 +95,7 @@ const Option = ({ value, children, onClick, isFirst, isLast, prefix }) => {
       isFirst={isFirst}
       isLast={isLast}
       onClick={() => onClick({ label: children, value })}
+      key={key}
       className={`${prefix ? `${prefix}select-option` : ''} select-option`}
     >
       {children}
@@ -136,8 +137,8 @@ Select.defaultProps = {
 };
 
 Option.propTypes = {
-  value: PropTypes.oneOfType([PropTypes.any]),
-  children: PropTypes.oneOfType([PropTypes.any]),
+  value: PropTypes.any,
+  children: PropTypes.any,
   onClick: PropTypes.func,
   isFirst: PropTypes.bool,
   isLast: PropTypes.bool,
