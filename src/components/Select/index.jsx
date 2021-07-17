@@ -23,7 +23,7 @@ const Select = ({
   const [isOpen, setIsOpen] = useState(isMenuOpen);
   const handleClick = (e) => {
     const isIcon = e.target && e.target.className && e.target.className.baseVal;
-    if (!selectRef.current.contains(e.target) && !(isIcon && isIcon.includes('select-icon'))) {
+    if (!selectRef?.current?.contains(e.target) && !(isIcon && isIcon.includes('select-icon'))) {
       setIsOpen(false);
     }
   };
@@ -137,6 +137,7 @@ Select.defaultProps = {
 };
 
 Option.propTypes = {
+  key: PropTypes.any,
   value: PropTypes.any,
   children: PropTypes.any,
   onClick: PropTypes.func,
@@ -146,6 +147,7 @@ Option.propTypes = {
 };
 
 Option.defaultProps = {
+  key: '',
   value: '',
   children: '',
   onClick: () => {},
