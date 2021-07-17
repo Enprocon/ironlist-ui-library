@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import c from 'classnames';
 import { checkbox } from './style';
 
-const Checkbox = ({ children, isActive, className, onChange, value }) => {
+const Checkbox = ({ children, isActive, className, onChange, value, name }) => {
   return (
     <div className={c(checkbox, className)}>
       <label className="container">
         {children}
-        <input type="radio" checked={isActive ? 'checked' : ''} name="radio" onChange={() => onChange(value)} />
+        <input type="radio" checked={isActive ? 'checked' : ''} name={name} onChange={() => onChange(value)} />
         <span className="checkmark" />
       </label>
     </div>
@@ -20,14 +20,16 @@ Checkbox.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node, PropTypes.func]),
   className: PropTypes.string,
   onChange: PropTypes.func,
-  value: PropTypes.string
+  value: PropTypes.string,
+  name: PropTypes.string
 };
 Checkbox.defaultProps = {
   isActive: false,
   children: '',
   className: '',
   onChange: () => {},
-  value: ''
+  value: '',
+  name: ''
 };
 
 export default Checkbox;
