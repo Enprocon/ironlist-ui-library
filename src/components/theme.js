@@ -34,7 +34,8 @@ export const theme = {
     bgGrey1: '#e0e1e3',
     bgGrey2: '#f4f4f5',
     bgGrey3: '#fbfbfb',
-    bgScrim: 'rgba(0, 0, 0, 0.32)'
+    bgScrim: 'rgba(0, 0, 0, 0.32)',
+    yellow3: '#ffefbf'
   },
   white: '#fff',
   black: '#000'
