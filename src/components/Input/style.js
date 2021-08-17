@@ -2,7 +2,6 @@ import { css } from '@emotion/css';
 
 export const inputWrapper = (theme, isInputFocus, disabled) => css`
   position: relative;
-  width: fit-content;
   display: flex;
   flex-direction: column;
 
